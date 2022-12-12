@@ -8,7 +8,7 @@ The member API provides read-only access to objects, files, work items and relat
 
 The admin API provides read-write access to Preserv service workers that process ingests, restorations, fixity checks and deletions. Preserv is the Registry's most active client. Fixity checks typically issue 10,000+ requests per hour. A slow ingest day may result in only a few hundred API requests, while a very busy day may result in a million or so requests.
 
-## Components
+## External Components & Services
 
 The Registry is written in Go, using the Gin web framework. The application runs inside Docker containers in Amazon's ECS/Fargate service. It tends to be light on memory and heavy on CPU when under load. ECS will add Registry containers when CPU usages passes a certain threshold and scale them back as load decreases.
 

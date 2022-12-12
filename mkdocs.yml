@@ -30,7 +30,7 @@ repo_url:  https://github.com/APTrust/registry-docs
 nav:
   - Home: index.md
   - Code Structure: structure.md
-  - Key Components: components.md
+  - Key Code Components: components.md
   - Security:
       - security/index.md
       - security/authentication.md
