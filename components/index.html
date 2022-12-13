@@ -1,0 +1,959 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.7">
+    
+    
+      
+        <title>Key Code Components - APTrust Registry</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.20d9efc8.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#code-components" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="APTrust Registry" class="md-header__button md-logo" aria-label="APTrust Registry" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            APTrust Registry
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Key Code Components
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/APTrust/registry-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="APTrust Registry" class="md-nav__button md-logo" aria-label="APTrust Registry" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    APTrust Registry
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/APTrust/registry-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        Features
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structure/" class="md-nav__link">
+        Code Structure
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Key Code Components
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Key Code Components
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-application-file" class="md-nav__link">
+    The Application File
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#template-helpers" class="md-nav__link">
+    Template Helpers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    Constants
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-configuration-object" class="md-nav__link">
+    The Configuration Object
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-context-object" class="md-nav__link">
+    The Context Object
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-middleware" class="md-nav__link">
+    Security Middleware
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-request-object" class="md-nav__link">
+    The Request Object
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-pager" class="md-nav__link">
+    The Pager
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-forms" class="md-nav__link">
+    Custom Forms
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#views" class="md-nav__link">
+    Views
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#models" class="md-nav__link">
+    Models
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#web-and-api-handlers" class="md-nav__link">
+    Web and API Handlers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ui-components-page" class="md-nav__link">
+    UI Components Page
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Security
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Security" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Security
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        Security Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/authentication/" class="md-nav__link">
+        Authentication
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/authorization/" class="md-nav__link">
+        Authorization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/csrf/" class="md-nav__link">
+        Cross-Site Request Forgery
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-management/" class="md-nav__link">
+        User Management
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../institution-management/" class="md-nav__link">
+        Institution Management
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../requests/" class="md-nav__link">
+        Requests
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deletion/" class="md-nav__link">
+        Deletion
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../restoration/" class="md-nav__link">
+        Restoration
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../requeuing/" class="md-nav__link">
+        Requeing Work Items
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nsq/" class="md-nav__link">
+        NSQ
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-components/" class="md-nav__link">
+        UI Components
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/" class="md-nav__link">
+        Database
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../settings/" class="md-nav__link">
+        Settings
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/" class="md-nav__link">
+        Testing
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-application-file" class="md-nav__link">
+    The Application File
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#template-helpers" class="md-nav__link">
+    Template Helpers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    Constants
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-configuration-object" class="md-nav__link">
+    The Configuration Object
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-context-object" class="md-nav__link">
+    The Context Object
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-middleware" class="md-nav__link">
+    Security Middleware
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-request-object" class="md-nav__link">
+    The Request Object
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-pager" class="md-nav__link">
+    The Pager
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-forms" class="md-nav__link">
+    Custom Forms
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#views" class="md-nav__link">
+    Views
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#models" class="md-nav__link">
+    Models
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#web-and-api-handlers" class="md-nav__link">
+    Web and API Handlers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ui-components-page" class="md-nav__link">
+    UI Components Page
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/APTrust/registry-docs/edit/master/docs/components.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="code-components">Code Components</h1>
+<p>The Registry app is built primarily on the <a href="https://github.com/gin-gonic/gin" target="_blank">Gin web framework</a> and the <a href="https://github.com/go-pg/pg" target="_blank">go-pg</a> ORM for Postgres.</p>
+<p>Additional packages (listed in go.mod) include:</p>
+<ul>
+<li>aws-sdk-go for SES and SNS services (but not for S3 or Glacier)</li>
+<li>go-authy for authy push notifications used in two-factor login</li>
+<li>govalidator for data validation</li>
+<li>httpexpect for testing web and API requests</li>
+<li>nsq for talking to NSQ services</li>
+<li>redis for talking to Redis/Elasticache</li>
+<li>testify for unit and integration tests</li>
+<li>viper for reading config settings</li>
+<li>zerolog for logging</li>
+</ul>
+<p>The headings below give a high-level overview of key files and components, describing where to find them, what they do, and how they fit into the system.</p>
+<p>This page attempts to give an overview only. Components are described in more detail on dedicated pages.</p>
+<h2 id="the-application-file">The Application File</h2>
+<p>The <a href="https://github.com/APTrust/registry/blob/master/app/application.go" target="_blank">application file</a> includes essential setup and configuration steps to run the Registry app. This includes:</p>
+<ul>
+<li>Defining routes for the web UI, member API and admin API.</li>
+<li>Defining template helpers, which are functions that can be executed within HTML templates.</li>
+<li>Running code to load all HTML templates at application start.</li>
+<li>Initializing midleware.</li>
+</ul>
+<p>The application file defined a single public function called Run() which runs the Registry service. This function is called in <a _target="blank" href="https://github.com/APTrust/registry/blob/master/registry.go">registry.go</a> to start the server. It's also called in the test suite to run a background server to handle test queries.</p>
+<h2 id="template-helpers">Template Helpers</h2>
+<p>The <a href="https://github.com/APTrust/registry/tree/master/helpers/templates.go" target="_blank">templates.go</a> file defines a number of helper functions that can be called from within the application's HTML templates. The functions' names will tell you what they do. Each function also includes a docstring.</p>
+<p>Note that these functions must be registered to work inside of templates. The registration happens in the <code>initTeplates()</code> function in <a href="https://github.com/APTrust/registry/blob/master/app/application.go" target="_blank">app/application.go</a></p>
+<h2 id="constants">Constants</h2>
+<p><a href="https://github.com/APTrust/registry/blob/master/constants/constants.go" target="_blank">constant.go</a> defines a number of constants used througout the app. This is to avoid having the app littered with mistyped strings or strings whose cases don't match. The constants' names are descriptive enough to tell you what they mean.</p>
+<p><a href="https://github.com/APTrust/registry/blob/master/constants/permissions.go" target="_blank">permissions.go</a> defines permissions and which roles they are assigned to. See the <a href="security/authorization">Authorization</a> page for details on how permissions are applied.</p>
+<h2 id="the-configuration-object">The Configuration Object</h2>
+<p>The <a href="https://github.com/APTrust/registry/blob/master/common/config.go">Configuration Object</a> loads config variables from a .env file and from environment variables, which can be pumped into Docker containers from Amazon's Parameter Store.</p>
+<p>In development and test environments, most config settings are stored in .dev.env or .test.env. To load the right config, specify one of the following on the command line:</p>
+<div class="highlight"><pre><span></span><code>APT_ENV=dev ./registry serve
+</code></pre></div>
+<p>or</p>
+<div class="highlight"><pre><span></span><code>APT_ENV=test ./registry serve
+</code></pre></div>
+<p>Config settings are loaded first from the .env file, then from the environment, with environment values overwriting .env file values via viper's <code>AutomaticEnv()</code> call.</p>
+<p>The environment is loaded and made globally available by the <a href="https://github.com/APTrust/registry/blob/master/common/context.go">Context() function</a>, which returns a singleton instance of APTContext, described below.</p>
+<h2 id="the-context-object">The Context Object</h2>
+<p>The <a href="https://github.com/APTrust/registry/blob/master/common/context.go">Context() function</a> returns a singleton instance of APTContext, which makes the following items available to all parts of the Registry application:</p>
+<ul>
+<li>A <code>Configuration</code> object containing all config settings.</li>
+<li>A <code>DB</code> object which provides a connection pool to the Postgres database.</li>
+<li>A <code>Log</code> object for logging.</li>
+<li>An <code>AuthyClient</code> for two-factor auth push notifications.</li>
+<li>A <code>RedisClient</code> for talking to Redis.</li>
+<li>An <code>NSQClient</code> for talking to NSQ.</li>
+<li>An <code>SESClient</code> for sending emails to users. These are usually password-reset emails, or emails asking someone to review a deletion request.</li>
+<li>An <code>SNSClient</code> for sending login codes to two-factor auth users via text message.</li>
+</ul>
+<h2 id="security-middleware">Security Middleware</h2>
+<p>Sucurity middleware is registered in the <a href="https://github.com/APTrust/registry/blob/master/app/application.go" target="_blank">application file</a>. The source is in the <a href="https://github.com/APTrust/registry/tree/master/middleware" target="_blank">middleware directory</a>.</p>
+<p>Each piece of middleware touches every request <em>before</em> the registered request handler. The components have the following responsibilities:</p>
+<table>
+<thead>
+<tr>
+<th>Compenent</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/middleware/authenticate.go" target="_blank">authenticate.go</a></td>
+<td>Ensures the current user is authenticated before accessing endpoints that require authentication.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/middleware/authorize.go" target="_blank">authorize.go</a></td>
+<td>Ensures the user is authorized to perform the current request. This component depends on the <a href="https://github.com/APTrust/registry/blob/master/middleware/authorization_map.go" target="_blank">authorization_map.go</a> and <a href="https://github.com/APTrust/registry/blob/master/middleware/resource_authorization.go" target="_blank">resource_authorization.go</a> files in the middleware directory, as well as the <a href="https://github.com/APTrust/registry/blob/master/constants/permissions.go" target="_blank">permissions.go</a> file in the constants directory.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/middleware/csrf.go" target="_blank">csrf.go</a></td>
+<td>This ensures that CSRF tokens are present and valid for all POST and PUT requests.</td>
+</tr>
+</tbody>
+</table>
+<p>See the <a href="security">Security Overview</a> for info on how security checks fit into the request lifecycle.</p>
+<h2 id="the-request-object">The Request Object</h2>
+<p>The Request object handles boilerplate processing common to all requests, such as parsing common query data, loading common tempdate data value, showing or hiding submenus, setting up a pager for list responses, and loading requested objects or lists of objects.</p>
+<p>There are two versions of the request object: one for <a href="https://github.com/APTrust/registry/blob/master/web/webui/request.go" target="_blank">web requests</a> and one for <a href="https://github.com/APTrust/registry/blob/master/web/api/request.go" target="_blank">API requests</a>.</p>
+<p>You'll notice in that in both the Web UI and the REST APIs, most handlers begin with a call to <code>req := NewRequest(c)</code> to handle the boilerplate setup. (The <code>c</code> param is the <code>*gin.Context</code> object, which contains the HTTP request and lots of other metadata.)</p>
+<h2 id="the-pager">The Pager</h2>
+<p>The <a href="https://github.com/APTrust/registry/blob/master/common/pager.go" target="_blank">pager object</a> contains information about lists, including how many total results a list query yielded and links to the next and previous pages of results. This object works for both Web (HTML) and API (JSON) requests.</p>
+<p>Because this object is automatically set up by the Request object, you generally don't have to touch it or think about it.</p>
+<h2 id="custom-forms">Custom Forms</h2>
+<p>The <a href="https://github.com/APTrust/registry/tree/master/forms" target="_blank">forms directory</a> defines custom forms for each type of object a user or admin may edit through the web UI. It also contains filter forms for all of the Web UI's list pages.</p>
+<p>The form objects define what goes into each form. Forms layout and rendering is defined in the <a href="https://github.com/APTrust/registry/blob/master/views" target="_blank">views directory</a>. For example, the form for editing user details is in the
+<a href="https://github.com/APTrust/registry/blob/master/views/users/form.html" target="_blank">user form template</a>. while the for for filtering a list of users in in the <a href="https://github.com/APTrust/registry/blob/master/views/users/_filters.html" target="_blank">user filters form</a>.</p>
+<h2 id="views">Views</h2>
+<p>Views are HTML templates used to render web pages. All of the Registry's views are in the <a href="https://github.com/APTrust/registry/blob/master/views" target="_blank">views directory</a>. The <a href="https://github.com/APTrust/registry/blob/master/app/application.go" target="_blank">application file</a> loads all of them at startup.</p>
+<h2 id="models">Models</h2>
+<p>The application models are defind in the <a href="https://github.com/APTrust/registry/tree/master/pgmodels" target="_blank">pgmodels directory</a>. These models map to database tables and views through the <a href="https://github.com/go-pg/pg" target="_blank">go-pg</a> ORM.</p>
+<h2 id="web-and-api-handlers">Web and API Handlers</h2>
+<p>All of the handlers for the Web UI are defined in the <a href="https://github.com/APTrust/registry/tree/master/web/webui" target="_blank">web/webui directory</a>.</p>
+<p>Handlers for the member API, which is a read-only subset of the admin API, are in the
+<a href="https://github.com/APTrust/registry/tree/master/web/api/common" target="_blank">web/api/common</a> directory.</p>
+<p>Handlers for the admin API are in the <a href="https://github.com/APTrust/registry/tree/master/web/api/admin" target="_blank">web/api/admin</a> directory.</p>
+<p>These handlers are mapped to URLs in the <a href="https://github.com/APTrust/registry/blob/master/app/application.go" target="_blank">application file</a>.</p>
+<h2 id="ui-components-page">UI Components Page</h2>
+<p>The <a href="https://repo.aptrust.org/ui_components" target="_blank">UI components page</a> displays available UI components and the HTML required to render them. Refer to this page when creating new features.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../structure/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Code Structure" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Code Structure
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../security/" class="md-footer__link md-footer__link--next" aria-label="Next: Security Overview" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Security Overview
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.8492ddcf.min.js"></script>
+      
+    
+  </body>
+</html>
