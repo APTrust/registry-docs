@@ -302,9 +302,40 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Security Overview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Security Overview
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-middleware" class="md-nav__link">
+    About Middleware
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -544,6 +575,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-middleware" class="md-nav__link">
+    About Middleware
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -570,7 +616,15 @@
 <li><a href="csrf/">CSRF</a> handles tokens to prevent cross-site request forgery (CSRF).</li>
 </ol>
 <p>Aside from user login, all of these security features are implemented in middleware to ensure that security checks run before any request is handled. If any request hits an endpoint without first getting explicit approval from security middleware, the application will return an error and the request handler will not be called.</p>
-<p>This pattern, inspired by the Rais devise gem, puts the onus on the developer to ensure security checks occur for each request. If the developer forgets to explicit add a security for a new request handler, no one will ever be able to reach that handler.</p>
+<p>This pattern, inspired by the Rails devise gem, puts the onus on the developer to ensure security checks occur for each request. If the developer forgets to explicit add a security for a new request handler, no one will ever be able to reach that handler.</p>
+<h2 id="about-middleware">About Middleware</h2>
+<p>The <a href="https://github.com/gin-gonic/gin" target="_blank">Gin web framework</a> allows us to define middleware that executes before (and after) a request reaches our application's request handlers.</p>
+<p>The <code>initMiddleware()</code> function in <a href="https://github.com/APTrust/registry/blob/master/app/application.go" target="_blank">application.go</a> defines four middlewares to be executed in order.</p>
+<p>The first is a general logger. It always passes control to the next middlware, which is <a href="authentication/">Authentication</a>. If the authentication middleware determines the current user can proceed with the request, it passes control to the next middleware, which is authorization.</p>
+<p>If the authenticated middleware determines the user cannot proceed with the request (because the request requires authentication and the user is missing a valid session cookie), it sends an error response and the request ends there. It never even reaches the authorization step.</p>
+<p>The <a href="authorization/">Authorization</a> middleware checks to see if the user is authorized to perform the requested action or to access the requested resource. If so, it passes the request on to the CSRF middleware. If not, request processing ends here, with the middleware returning an error response to the user.</p>
+<p>If the user is attempting a PUT or POST request, the <a href="csrf/">CSRF middleware</a> ensures that the request includes valid CSRF tokens. If a token is missing from the cookie or the form, or if the tokens don't match, processing end here with the CSRF middleware returning an error response.</p>
+<p>Middlewares push requests to the next step of processing by calling the <code>Next()</code> function. Note that middlewares can touch the response object in the Gin context after calling <code>Next()</code>, though Registry does not do this. Maintainers can add post-processing in future generations of Registry if necessary.</p>
 
 
 

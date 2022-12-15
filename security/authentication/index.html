@@ -316,9 +316,67 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Authentication
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Authentication
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#web-ui" class="md-nav__link">
+    Web UI
+  </a>
+  
+    <nav class="md-nav" aria-label="Web UI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#endpoints-exempt-from-authorization" class="md-nav__link">
+    Endpoints Exempt from Authorization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-headers" class="md-nav__link">
+    Default Headers
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -544,6 +602,48 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#web-ui" class="md-nav__link">
+    Web UI
+  </a>
+  
+    <nav class="md-nav" aria-label="Web UI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#endpoints-exempt-from-authorization" class="md-nav__link">
+    Endpoints Exempt from Authorization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-headers" class="md-nav__link">
+    Default Headers
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -564,6 +664,105 @@
 
 <h1 id="authentication">Authentication</h1>
 <p>Registry supports two types of authentication: a sign-in based scheme for users accessing the Web UI and a token-based scheme for API consumers accessing the member or admin API.</p>
+<h2 id="web-ui">Web UI</h2>
+<p>While the <code>UserSignInShow()</code> and <code>UserSignIn()</code> methods of the  <a href="https://github.com/APTrust/registry/blob/master/web/webui/users_controller.go" target="_blank">Users Controller</a> handle the sign-in process, the <a href="https://github.com/APTrust/registry/blob/master/middleware/authenticate.go" target="_blank">Authentication middleware</a> checks the session cookie on subsequent requests.</p>
+<p>The session cookie contains an encrypted User ID, which the authentication middleware uses to look up the user record. It then stores the User object in the Gin context for later access.</p>
+<p>The authentication middleware ensures the following:</p>
+<ol>
+<li>That the request includes a valid user session cookie with a valid user if the request tries to access a protected resource. See below for a list of resources that do not require authentication.</li>
+<li>That the user will be forced to complete the password change process before accessing any other resources, if the user happens to be in the middle of the password change process.</li>
+<li>That the user will be forced to complete the second step of two-factor authentication before accessing any other resources, if they have logged in with their email and password and have not yet completed the second step of two-factor auth.</li>
+</ol>
+<h3 id="endpoints-exempt-from-authorization">Endpoints Exempt from Authorization</h3>
+<p>The <a href="https://github.com/APTrust/registry/blob/master/middleware/authenticate.go" target="_blank">middleware/authentication.go</a> includes a function called <code>ExemptFromAuth()</code> to check whether the current request is exempt from authentication. Currently, the following endpoints are exempt:</p>
+<table>
+<thead>
+<tr>
+<th>Endpoint</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/users/sign_in</td>
+<td>Users obviously won't be logged in when they go to the sign-in page. They have to be able to see it to log in.</td>
+</tr>
+<tr>
+<td>/users/sign_out</td>
+<td>This page tells the user they've signed out.</td>
+</tr>
+<tr>
+<td>/users/forgot_password</td>
+<td>This page is for users who have forgotten their password and received a password-reset email. The page includes a text input for them to enter the password reset token we sent them.</td>
+</tr>
+<tr>
+<td>/users/complete_password_reset/</td>
+<td>After entering their reset token, users choose a new password on this page. The app includes security measures to prevent people accessing this page without having previously entered the reset token.</td>
+</tr>
+<tr>
+<td>/ui-components</td>
+<td>This page displays a gallery of UI components, for developer reference. It's static and contains no sensitive information.</td>
+</tr>
+<tr>
+<td>/static/*</td>
+<td>This is the prefix for all static resources, including scripts, stylesheets, icons and fonts.</td>
+</tr>
+<tr>
+<td>/favicon/*</td>
+<td>This returns the site's favicon.</td>
+</tr>
+<tr>
+<td>/error</td>
+<td>This page displayes errors, including errors telling you you need to log in.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="api">API</h2>
+<p>If the Authentication middleware detects that the user has requested an API endpoint rather than a web endpoint, the <code>GetUserFromAPIHeaders()</code> function extracts the header values for <code>X-Pharos-API-User</code> and <code>X-Pharos-API-Key</code> and loads the user based on their API key.</p>
+<h2 id="default-headers">Default Headers</h2>
+<p>The Authentication middleware also sets some default headers for every request. We want to set these here because we want to those headers even when authenticaion fails and the auth middleware responds directly to the user.</p>
+<p>We set the following headers in <code>SetDefaultHeaders()</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cache-Control</td>
+<td>no-cache</td>
+<td>Tells browsers and proxies not to cache responses. This is set only for dynamic content, not for static content like scripts, stylesheets and images.</td>
+</tr>
+<tr>
+<td>Pragma</td>
+<td>no-store</td>
+<td>Same as Cache-Control above, but for really old browsers.</td>
+</tr>
+<tr>
+<td>Strict-Transport-Security</td>
+<td>max-age=31536000</td>
+<td>Forces clients to use HTTPS instead of HTTP.</td>
+</tr>
+<tr>
+<td>X-XSS-Protection</td>
+<td>1</td>
+<td>Instructs browsers to stop loading or sanitize the page if they detect a cross-site scripting attack.</td>
+</tr>
+<tr>
+<td>X-Content-Type-Options</td>
+<td>"nosniff"</td>
+<td>Blocks content sniffing that could transform non-executable MIME types into executable MIME types.</td>
+</tr>
+<tr>
+<td>Content-Security-Policy</td>
+<td>"default-src 'self'; font-src 'self' fonts.gstatic.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; script-src 'self' 'unsafe-inline'"</td>
+<td>Prevents some cross-site scripting and data injection attacks. The policy spelled out in the value of this header says the browser should trust scripts, fonts, and stylesheets from our own domain. It should also accept fonts from Google's font serving domain, fonts.gstatic.com and CSS from fonts.googlapis.com. The <code>unsafe-inline</code> statements mean the browser should trust inline JavaScript from our domain and inline CSS from fonts.googleapis.com. Confirming browsers will reject fonts, scripts, and stylesheets from other sources.</td>
+</tr>
+</tbody>
+</table>
 
 
 

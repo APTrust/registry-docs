@@ -330,9 +330,68 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Authorization
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Authorization
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#things-to-note" class="md-nav__link">
+    Things to Note
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permission-definitions" class="md-nav__link">
+    Permission Definitions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permission-mapping" class="md-nav__link">
+    Permission Mapping
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permission-checking" class="md-nav__link">
+    Permission Checking
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-of-authorization-related-files" class="md-nav__link">
+    List of Authorization-Related Files
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -544,6 +603,49 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#things-to-note" class="md-nav__link">
+    Things to Note
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permission-definitions" class="md-nav__link">
+    Permission Definitions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permission-mapping" class="md-nav__link">
+    Permission Mapping
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permission-checking" class="md-nav__link">
+    Permission Checking
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-of-authorization-related-files" class="md-nav__link">
+    List of Authorization-Related Files
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -563,6 +665,104 @@
 
 
 <h1 id="authorization">Authorization</h1>
+<p>Authorization middleware runs after authentication middleware. By the time it touches the request, the authentication middlware has added the User object to the current request.</p>
+<p>The <a href="https://github.com/APTrust/registry/blob/master/middleware/authorize.go" target="_blank">authorization middlware</a> uses that User object to do the following:</p>
+<ol>
+<li>Check the URL/request path to see what type of resource the user is requesting. If the resource maps to a specific database record (a work item, generic file, intellectual object, etc.), it looks up the record to see which institution it belongs to.</li>
+<li>Check the <a href="https://github.com/APTrust/registry/blob/master/middleware/authorization_map.go" target="_blank">authrorization map</a> to see if the user is allowed to access that particular resource belonging to that particular institution.</li>
+<li>Constructs a <a href="https://github.com/APTrust/registry/blob/master/middleware/resource_authorization.go" target="_blank">ResourceAuthorization object</a> with the following information:<ul>
+<li>Handler - The name of the HTTP handler function that will handle the user's request.</li>
+<li>ResourceID - The unique id of the resource (work item, file, obect, etc.) the user requested. This will be zero if the user is requesting a list of items.</li>
+<li>ResourceIdentifier - The string identifier of the requested resource. This applies to institutions, intellectual objects and generic files.</li>
+<li>ResourceInstId - The ID of the institution to which the resource belongs.</li>
+<li>ResourceType - The type of resource (IntellectualObject, WorkItem, GenericFile, etc.).</li>
+<li>Permission - The permission required to access the requested resource. These are defined in <a href="https://github.com/APTrust/registry/blob/master/constants/permissions.go" target="_blank">constants/permissions</a>.</li>
+<li>Checked - True or false, indicating whether the authorization middleware checked that the user has permission to access the requested resource.</li>
+<li>Approved - True or false, indicating whether the user has permission to access the requested resource.</li>
+<li>Error - Describes any error that occurred during the authorization check.</li>
+</ul>
+</li>
+</ol>
+<p>The authorization middleware will not let a request proceed unless the ResourceAuthorization object's <code>Checked</code> and <code>Approved</code> attrbutes are both true.</p>
+<h2 id="things-to-note">Things to Note</h2>
+<ol>
+<li>If, when adding a new endpoint, you to forget to define a permission for it, you will never be able to reach that endpoint, because without a defined permission, <code>ResourceAuthorization.Checked</code> will be false.</li>
+<li>Requests for list endpoints, such as the WorkItems list and the IntellectualObject list, cannot include a ResourceID or a ResourceInstID, because the requests don't target a single resource. Unless the requesting user is an APTrust admin, database queries issued by these requests will <strong>always</strong> include an Institution ID filter, with the ID set to the user's own institution ID. For example, when a user from virginia.edu requests a list of WorkItems, objects, or files, the system will force a where clause into their queries stating <code>where institution_id = [user's institution id]</code>. This occurs in the <code>LoadResourceList()</code> function of the Web UI's <a href="https://github.com/APTrust/registry/blob/master/web/webui/request.go" target="_blank">Request object</a> and in the <code>LoadResourceList()</code> function of the API's <a href="https://github.com/APTrust/registry/blob/master/web/api/request.go" target="_blank">Request object</a>.</li>
+</ol>
+<h2 id="permission-definitions">Permission Definitions</h2>
+<p>All of Registry's permission are defined in <a href="https://github.com/APTrust/registry/blob/master/constants/permissions.go" target="_blank">constants/permissions.go</a>. The <code>initPermissions()</code> function in that file assigns permissions to roles like so:</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="c1">// Institutional User Role</span><span class="w"></span>
+<span class="w">    </span><span class="nx">instUser</span><span class="p">[</span><span class="nx">ChecksumRead</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">    </span><span class="nx">instUser</span><span class="p">[</span><span class="nx">DashboardShow</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// ... additional permissions omitted for brevity...</span><span class="w"></span>
+
+
+<span class="w">    </span><span class="c1">// Institutional Admin Role</span><span class="w"></span>
+<span class="w">    </span><span class="nx">instAdmin</span><span class="p">[</span><span class="nx">FileDelete</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">    </span><span class="nx">instAdmin</span><span class="p">[</span><span class="nx">FileRead</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// ... additional permissions omitted for brevity...</span><span class="w"></span>
+
+
+<span class="w">    </span><span class="c1">// Sys Admin Role</span><span class="w"></span>
+<span class="w">    </span><span class="nx">sysAdmin</span><span class="p">[</span><span class="nx">ChecksumCreate</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">    </span><span class="nx">sysAdmin</span><span class="p">[</span><span class="nx">ChecksumDelete</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="c1">// no one can do this</span><span class="w"></span>
+<span class="w">    </span><span class="nx">sysAdmin</span><span class="p">[</span><span class="nx">ChecksumRead</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// ... additional permissions omitted for brevity...</span><span class="w"></span>
+</code></pre></div>
+<p>Registry permissions are role-based with the following general rules:</p>
+<ul>
+<li>Institutional Users can access resources belonging to their own institution, but cannot perform destructive actions and manipulate other user accounts.</li>
+<li>Institutional Admins can do everything Institutional Users can do, plus approve deletion requests and manipulate other user accounts at their own institution.</li>
+<li>The System Administrator account has all privileges at all institutions, plus some additional privileges such as creating, editing, and deactivating institutions, managing NSQ services, re-queueing WorkItems, and other administrative tasks.</li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>No role has any permission unless it is explicitly granted in <a href="https://github.com/APTrust/registry/blob/master/constants/permissions.go" target="_blank">constants/permissions.go</a>, and some permissions are explicitly denied to all users because they violate business rules.</p>
+<p>For example, no user can delete checksums or delete or alter PREMIS events. The endpoints to perform these actions don't even exist, and the underlying data models will throw errors if anyone even tries to perform these actions.</p>
+</div>
+<h2 id="permission-mapping">Permission Mapping</h2>
+<p>While permissions are defined and assigned to roles in <a href="https://github.com/APTrust/registry/blob/master/constants/permissions.go" target="_blank">constants/permissions.go</a>, they are mapped to request handlers in <a href="https://github.com/APTrust/registry/blob/master/middleware/authorization_map.go" target="_blank">middleware/authorization_map.go</a>. The authorization map tells the app which permission is required to access each request handler.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If you don't map a permission to your new request handler, no one will be able to reach it, ever, because the authorization check will fail.</p>
+</div>
+<h2 id="permission-checking">Permission Checking</h2>
+<p>The <a href="https://github.com/APTrust/registry/blob/master/middleware/authorize.go" target="_blank">middleware/authorization.go</a> middleware figures out which request handler responds to the current URL. It reads the authorization map to see which permission is required to access that handler, then determines whether the current user is allowed to call that handler. It also does further checks, as described above, to see if the user can access whatever resources that handler touches.</p>
+<h2 id="list-of-authorization-related-files">List of Authorization-Related Files</h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/constants/permissions.go" target="_blank">constants/permissions.go</a></td>
+<td>Defines all of the system permissions and assigns them to roles at application start.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/middleware/authorization_map.go" target="_blank">middleware/authorization_map.go</a></td>
+<td>Maps permissions to web and API request handlers.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/middleware/authorize.go" target="_blank">middleware/authorize.go</a></td>
+<td>Authorizes requests and decides whether or not to pass the request on to the handler.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/middleware/resource_authorization.go" target="_blank">middleware/resource_authorization.go</a></td>
+<td>Includes logic to compare user permissions to the authorization map, and to do fine-grained resource-level checks. (I.e. Ensures objects user is requesting actually belong to that user's institution.)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/web/webui/request.go" target="_blank">web/webui/request.go</a></td>
+<td>Enforces filters in list requests to ensure users access only resources belonging to their own institution.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/web/api/request.go" target="_blank">web/api/request/go</a></td>
+<td>Enforces filters in API list requests to ensure users access only resources belonging to their own institution.</td>
+</tr>
+</tbody>
+</table>
 
 
 
