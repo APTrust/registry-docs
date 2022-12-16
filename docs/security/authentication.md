@@ -32,18 +32,3 @@ The [middleware/authentication.go](https://github.com/APTrust/registry/blob/mast
 ## API
 
 If the Authentication middleware detects that the user has requested an API endpoint rather than a web endpoint, the `GetUserFromAPIHeaders()` function extracts the header values for `X-Pharos-API-User` and `X-Pharos-API-Key` and loads the user based on their API key.
-
-## Default Headers
-
-The Authentication middleware also sets some default headers for every request. We want to set these here because we want to those headers even when authenticaion fails and the auth middleware responds directly to the user.
-
-We set the following headers in `SetDefaultHeaders()`:
-
-| Name | Value | Description |
-| ---- | ----- | ----------- |
-| Cache-Control | no-cache | Tells browsers and proxies not to cache responses. This is set only for dynamic content, not for static content like scripts, stylesheets and images. |
-| Pragma | no-store | Same as Cache-Control above, but for really old browsers. |
-| Strict-Transport-Security | max-age=31536000 | Forces clients to use HTTPS instead of HTTP. |
-| X-XSS-Protection | 1 | Instructs browsers to stop loading or sanitize the page if they detect a cross-site scripting attack. |
-| X-Content-Type-Options | "nosniff" | Blocks content sniffing that could transform non-executable MIME types into executable MIME types. |
-| Content-Security-Policy | "default-src 'self'; font-src 'self' fonts.gstatic.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; script-src 'self' 'unsafe-inline'" | Prevents some cross-site scripting and data injection attacks. The policy spelled out in the value of this header says the browser should trust scripts, fonts, and stylesheets from our own domain. It should also accept fonts from Google's font serving domain, fonts.gstatic.com and CSS from fonts.googlapis.com. The `unsafe-inline` statements mean the browser should trust inline JavaScript from our domain and inline CSS from fonts.googleapis.com. Confirming browsers will reject fonts, scripts, and stylesheets from other sources. |

@@ -32,14 +32,16 @@ nav:
   - Features: features.md
   - Code Structure: structure.md
   - Key Code Components: components.md
+  - Requests: requests.md
   - Security:
       - security/index.md
+      - security/roles.md
       - security/authentication.md
       - security/authorization.md
       - security/csrf.md
+      - security/headers.md
   - User Management: user-management.md
   - Institution Management: institution-management.md
-  - Requests: requests.md
   - Deletion: deletion.md
   - Restoration: restoration.md
   - Requeing Work Items: requeuing.md

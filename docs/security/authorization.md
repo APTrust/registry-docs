@@ -23,6 +23,11 @@ The authorization middleware will not let a request proceed unless the ResourceA
 
 1. If, when adding a new endpoint, you to forget to define a permission for it, you will never be able to reach that endpoint, because without a defined permission, `ResourceAuthorization.Checked` will be false.
 2. Requests for list endpoints, such as the WorkItems list and the IntellectualObject list, cannot include a ResourceID or a ResourceInstID, because the requests don't target a single resource. Unless the requesting user is an APTrust admin, database queries issued by these requests will **always** include an Institution ID filter, with the ID set to the user's own institution ID. For example, when a user from virginia.edu requests a list of WorkItems, objects, or files, the system will force a where clause into their queries stating `where institution_id = [user's institution id]`. This occurs in the `LoadResourceList()` function of the Web UI's [Request object](https://github.com/APTrust/registry/blob/master/web/webui/request.go){target=_blank} and in the `LoadResourceList()` function of the API's [Request object](https://github.com/APTrust/registry/blob/master/web/api/request.go){target=_blank}.
+3. The authorization middleware issues a lightweight query to return the model's insitution id. We want these queries to be as light as possible, since they run on every request. You'll find these queries in the `InstIDFor()` function in [pgmodel.go](https://github.com/APTrust/registry/blob/master/pgmodels/pgmodel.go){target=_blank}.
+
+## The ResourceAuthorization Model
+
+The ResourceAuthorization model constructed by the authorization middleware will be used later by the request handlers. For more on that, see the [Requests](../requests.md#the-resourceauthorization-model) page.
 
 ## Permission Definitions
 
