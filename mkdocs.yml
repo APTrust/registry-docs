@@ -29,7 +29,6 @@ markdown_extensions:
 repo_url:  https://github.com/APTrust/registry-docs
 nav:
   - Home: index.md
-  - Features: features.md
   - Code Structure: structure.md
   - Key Code Components: components.md
   - Requests: requests.md
@@ -46,6 +45,7 @@ nav:
   - Restoration: restoration.md
   - Requeing Work Items: requeuing.md
   - NSQ: nsq.md
+  - Redis: redis.md
   - UI Components: ui-components.md
   - Database: database.md
   - Settings: settings.md
