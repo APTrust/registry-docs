@@ -48,5 +48,6 @@ nav:
   - Redis: redis.md
   - UI Components: ui-components.md
   - Database: database.md
+  - Data Models: models.md
   - Settings: settings.md
   - Testing: testing.md
