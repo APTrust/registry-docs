@@ -13,7 +13,7 @@
     
     
       
-        <title>Requests - APTrust Registry</title>
+        <title>Data Models - APTrust Registry</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#request-lifecycle" class="md-skip">
+        <a href="#data-models" class="md-skip">
           Skip to content
         </a>
       
@@ -95,7 +95,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Requests
+              Data Models
             
           </span>
         </div>
@@ -248,66 +248,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Requests
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../requests/" class="md-nav__link">
         Requests
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#the-web-request-object" class="md-nav__link">
-    The Web Request Object
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-api-request-object" class="md-nav__link">
-    The API Request Object
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-resourceauthorization-model" class="md-nav__link">
-    The ResourceAuthorization Model
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -571,11 +516,73 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../models/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Data Models
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Data Models
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-base-model" class="md-nav__link">
+    The Base Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#allowed-filters" class="md-nav__link">
+    Allowed Filters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-of-models" class="md-nav__link">
+    List of Models
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-of-non-model-objects-in-pgmodels" class="md-nav__link">
+    List of Non-Model Objects in pgmodels
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -637,22 +644,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-web-request-object" class="md-nav__link">
-    The Web Request Object
+  <a href="#the-base-model" class="md-nav__link">
+    The Base Model
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-api-request-object" class="md-nav__link">
-    The API Request Object
+  <a href="#allowed-filters" class="md-nav__link">
+    Allowed Filters
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-resourceauthorization-model" class="md-nav__link">
-    The ResourceAuthorization Model
+  <a href="#list-of-models" class="md-nav__link">
+    List of Models
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-of-non-model-objects-in-pgmodels" class="md-nav__link">
+    List of Non-Model Objects in pgmodels
   </a>
   
 </li>
@@ -671,38 +685,165 @@
                 
                   
 
-  <a href="https://github.com/APTrust/registry-docs/edit/master/docs/requests.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/APTrust/registry-docs/edit/master/docs/models.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="request-lifecycle">Request Lifecycle</h1>
-<p>Processing for virtually all Registry requests follows the same pattern, flowing through the these steps, in order:</p>
-<ol>
-<li>Authentication middleware ensures the user is logged in.</li>
-<li>Authorization middleware ensures the user is allowed to access the resources they are requesting.</li>
-<li>CSRF middlware ensures bad actors can't hijack valid user sessions to perform unsavory actions.</li>
-<li>The request handler mapped to the current URL is invoked. (URLs are mapped to handlers in <a href="https://github.com/APTrust/registry/blob/master/app/application.go" target="_blank">app/application.go</a>.)
-    a. The request handler creates a <a href="https://github.com/APTrust/registry/blob/master/web/webui/request.go" target="_blank">web request</a> or <a href="https://github.com/APTrust/registry/blob/master/web/api/request.go" target="_blank">API request</a> object to perform common basic operations. More on this below.
-    b. The request handler performs its custom logic.
-    c. The request handler constructs and returns a response.</li>
-</ol>
-<h2 id="the-web-request-object">The Web Request Object</h2>
-<p>The <a href="https://github.com/APTrust/registry/blob/master/web/webui/request.go" target="_blank">web request object</a> performs the following common operations for virtually all requests:</p>
-<ol>
-<li>Populates common template data so the response template can display it. (E.g. the current user, the csrf token for HTML forms, a flash message, and more.)</li>
-<li>Determines whether the requested page should be displayed as a stand-alone page or a modal element. In the first case, the server will return a full HTML document with head and body elements. In the second it returns an HTML snippet, which is usually a single div. This code exists because in early iterations of the UI design, some elements changed from modal display to standalone pages and back again. Many pages still support both rendering methods.</li>
-<li>Clears out old flash cookies.</li>
-</ol>
-<p>If the request is for an index (list) page, the request object parses the filters from the query string, constructs the where clause for the query, loads results, and sets up a pager object that will let the user move through the result set.</p>
-<p>Note that each data model in the application's <a href="https://github.com/APTrust/registry/tree/master/pgmodels" target="_blank">pgmodels directory</a> includes a list of allowed filters. The web Request object parses the filter params and knows how to build a where clause from these. The where clause is SQL-safe, and the Request object will ignore any params that are not explicitly whitelisted.</p>
-<h2 id="the-api-request-object">The API Request Object</h2>
-<p>The <a href="https://github.com/APTrust/registry/blob/master/web/api/request.go" target="_blank">API request object</a> performs the same set of common tasks as the web request object, though it's tailored to assist in generating JSON output instead of HTML.</p>
-<p>Because the API allows creating and updating sensitive records, such as WorkItems, IntellectualObjects, and GenericFiles, the API request object's <code>AssertValidIDs</code> function does some additional sanity checking to prevent malformed and malicious API requests from touching records belonging to the wrong institutions.</p>
-<h2 id="the-resourceauthorization-model">The ResourceAuthorization Model</h2>
-<p>You'll notice that both the web and API request objects load the ResourceAuthorization model from the current request context. This model was constructed by the <a href="../security/authorization/">authorization middleware</a> during its aurhorization check.</p>
-<p>This model contains some essential information for processing requests related to a single resource, including the resource type, ID, and identifier, as well as the ID of the institution that owns the resource. Request handlers use these IDs to load or update the requested resource.</p>
+<h1 id="data-models">Data Models</h1>
+<p>The data models that form the core of the Registry are located in the <a href="https://github.com/APTrust/registry/tree/master/pgmodels" target="_blank">pgmodels directory</a>. These models map directly to database tables or database views.</p>
+<p>Table-backed models support inserts and usually updates and deletions. (Some records, such as PREMIS events, cannot be updated or deleted.) Most models implementing deletion support soft-deletion only.</p>
+<p>View-backed models are read-only. These are generally used to gather data for detail and list pages with a single query.</p>
+<h2 id="the-base-model">The Base Model</h2>
+<p>The base models, BaseModel and TimestampModel, are defined in <a href="https://github.com/APTrust/registry/blob/master/pgmodels/pgmodel.go" target="_blank">pgmodels/pgmodel.go</a>, which also defines base methods for insertion, updating, and transactions.</p>
+<p>This file has two other important functions:</p>
+<ul>
+<li><code>initFilters()</code> defines a whitelist of allowed filters for each model type.</li>
+<li><code>InstIDFor()</code> returns the ID of the insitution that owns any given resource.</li>
+</ul>
+<p><code>InstIDFor()</code> is especially important for the security checks run by the <a href="https://github.com/APTrust/registry/blob/master/middleware/resource_authorization.go" target="_blank">resource authorization middleware</a>, which checks permissions against roles and ensures institutional users and admins can access only those resources belonging to their own institutions.</p>
+<h2 id="allowed-filters">Allowed Filters</h2>
+<p>Each model defines a list of allowed filters that users can use to refine results in list queries. The filters are often defined on the view version of a model. For example, <a href="https://github.com/APTrust/registry/blob/master/pgmodels/work_item_view.go" target="_blank">pgmodels/work_item_view.go</a> defines a number of filters for the WorkItem list.</p>
+<p>These filters become the names of form controls in the related filter form. See, for example, the <a href="https://github.com/APTrust/registry/blob/master/forms/work_item_filter_form.go" target="_blank">WorkItemFilterForm</a>.</p>
+<p>That form will be rendered by the <a href="https://github.com/APTrust/registry/blob/master/views/work_items/_filters.html" target="_blank">work item filters view</a>.</p>
+<p>When a user submits a query to the WorkItem list page, the <code>GetFilterCollection()</code> function of the <a href="https://github.com/APTrust/registry/blob/master/web/webui/request.go" target="_blank">web request object</a> parses the query string into a  <a href="https://github.com/APTrust/registry/blob/master/pgmodels/filter_collection.go" target="_blank">FilterCollection object</a>, whose <code>ToQuery()</code> function converts it to a
+<a href="https://github.com/APTrust/registry/blob/master/pgmodels/query.go" target="_blank">Query object</a>.</p>
+<p>The effect of all this is that we can add new query fields for any table or view simply by adding items to the allowed filters list. As long as the filter name follows a defined pattern, the Registry code will know what to do with it. This system also ensures that Registry won't accept unknown or dangerous filters, only those that are whitelisted.</p>
+<p>The QueryOp map in <a href="https://github.com/APTrust/registry/blob/master/pgmodels/query.go" target="_blank">pgmodels/query.go</a> defines how filter name suffixes map to SQL operators. For example, query string parameters <code>size=99</code> and <code>size__eq=99</code> both turn into the SQL condition <code>size = 99</code>. Similarly, <code>size__gt=99</code> turns into <code>size &gt; 99</code>, while <code>size__gteq=99</code> turns into <code>size &gt;= 99</code>.</p>
+<p>The QueryOp map supports numeric operators as well as string and boolean equality, <code>ILIKE</code>, <code>IN</code>, <code>NOT IN</code>, <code>IS NULL</code> and <code>IS NOT NULL</code>.</p>
+<h2 id="list-of-models">List of Models</h2>
+<p>Below is a list of models in the pgmodels directory, along with a brief description of each. For more information, click on a model name to view the souce.</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/pgmodels/alert.go" target="_blank">Alert</a></td>
+<td>An alert sent to one or more users. E.g. password-reset email, deletion request review notice, etc.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/pgmodels/alert_view.go" target="_blank">AlertView</a></td>
+<td>Read-only model containing additional fields from records related to the alert. This is used for querying and display.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/pgmodels/checksum.go" target="_blank">Checksum</a></td>
+<td>A checksum record for an individual GenericFile. Checksums cannot be deleted or updated.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/pgmodels/checksum_view.go" target="_blank">ChecksumView</a></td>
+<td>Read-only model containing additional fields from records related to the checksum. This is used for querying and display.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/pgmodels/counts.go" target="_blank">Counts</a></td>
+<td>Includes several objects used to represent object, file, event, and work item counts.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/pgmodels/deletion_request.go" target="_blank">DeletionRequest</a></td>
+<td>Contains information about a request to delete a GenericFile or IntellectualObject.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/pgmodels/deletion_request_view.go" target="_blank">DeletionRequestView</a></td>
+<td>Read-only model containing additional fields from records related to the deletion request. This is used for querying and display.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/pgmodels/deposit_format_stats.go" target="_blank">DepositFormatStats</a></td>
+<td>Contains stats about an institution's deposits. Possibly obsolete. This may have been superseded by DepositStats.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/pgmodels/deposit_stats.go" target="_blank">DepositStats</a></td>
+<td>Contains repository-wide stats used in Registry's Reports page.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/pgmodels/generic_file.go" target="_blank">GenericFile</a></td>
+<td>Represents a single file in preservation storage.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/pgmodels/generic_file_view.go" target="_blank">GenericFileView</a></td>
+<td>Read-only model containing additional fields from records related to the file. This is used for querying and display.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/pgmodels/institution.go" target="_blank">Institution</a></td>
+<td>Describes an institution (aka depositor).</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/pgmodels/institution_view.go" target="_blank">InstitutionView</a></td>
+<td>Read-only model containing additional fields from records related to the institution. This is used for querying and display.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/pgmodels/intellectual_object.go" target="_blank">IntellectualObject</a></td>
+<td>Represents an object in preservation storage. An IntellectualObject is a collection of GenericFiles, plus some metadata, such as Title, Access settings, etc.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/pgmodels/intellectual_object_view.go" target="_blank">IntellectualObjectView</a></td>
+<td>Read-only model containing additional fields from records related to the object. This is used for querying and display.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/pgmodels/premis_event.go" target="_blank">PremisEvent</a></td>
+<td>Describes an action that the system or one of its users has performed on an IntellectualObject or GenericFile. PREMIS events cannot be updated or deleted.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/pgmodels/premis_event_view.go" target="_blank">PremisEventView</a></td>
+<td>Read-only model containing additional fields from records related to the event. This is used for querying and display.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/pgmodels/storage_record.go" target="_blank">StorageRecord</a></td>
+<td>Describes where in preservation storage a file can be found.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/pgmodels/user.go" target="_blank">User</a></td>
+<td>A Registry User.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/pgmodels/user_view.go" target="_blank">UserView</a></td>
+<td>Read-only model containing additional fields from records related to the user. This is used for querying and display.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/pgmodels/work_item.go" target="_blank">WorkItem</a></td>
+<td>Describes a task that is, has been, or will be carried out by Preserv's ingest, restoration or deletion services.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/pgmodels/work_item_view.go" target="_blank">WorkItemView</a></td>
+<td>Read-only model containing additional fields from records related to the WorkItem. This is used for querying and display.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="list-of-non-model-objects-in-pgmodels">List of Non-Model Objects in pgmodels</h2>
+<p>The following files in the pgmodels folder are not models but are related to models and database access.</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/pgmodels/factory.go" target="_blank">factory.go</a></td>
+<td>Like Rails' FactoryGirl, this file contains functions to generate model instances for unit and integration tests.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/pgmodels/filter_collection.go" target="_blank">filter_collection.go</a></td>
+<td>Contains information about filters a user wants to apply when querying a list of records.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/pgmodels/json_types.go" target="_blank">json_types.go</a></td>
+<td>Contains specially-defined serialization models for some pgmodel types. These are for cases in which some front-end component requires a custom (usually lightweight) serialization of an object.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/pgmodels/pgmodel.go" target="_blank">pgmodel.go</a></td>
+<td>Contains base fields and functions inherited by other pgmolde.s</td>
+</tr>
+<tr>
+<td><a href="https://github.com/APTrust/registry/blob/master/pgmodels/query.go" target="_blank">query.go</a></td>
+<td>Contains information necessary to generate a database query, including where clause, sorting, offsets, and limits. This can be constructed from a FilterCollection object, which in turn is parsed from query string params.</td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -723,7 +864,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../components/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Key Code Components" rel="prev">
+        <a href="../database/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Database" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -732,20 +873,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Key Code Components
+              Database
             </div>
           </div>
         </a>
       
       
         
-        <a href="../security/" class="md-footer__link md-footer__link--next" aria-label="Next: Security Overview" rel="next">
+        <a href="../settings/" class="md-footer__link md-footer__link--next" aria-label="Next: Settings" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Security Overview
+              Settings
             </div>
           </div>
           <div class="md-footer__button md-icon">

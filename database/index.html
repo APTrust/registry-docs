@@ -220,21 +220,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../features/" class="md-nav__link">
-        Features
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../structure/" class="md-nav__link">
         Code Structure
       </a>
@@ -252,6 +237,21 @@
     <li class="md-nav__item">
       <a href="../components/" class="md-nav__link">
         Key Code Components
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../requests/" class="md-nav__link">
+        Requests
       </a>
     </li>
   
@@ -305,6 +305,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../security/roles/" class="md-nav__link">
+        Roles and Privileges
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../security/authentication/" class="md-nav__link">
         Authentication
       </a>
@@ -335,6 +349,20 @@
     <li class="md-nav__item">
       <a href="../security/csrf/" class="md-nav__link">
         Cross-Site Request Forgery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/headers/" class="md-nav__link">
+        Default Headers
       </a>
     </li>
   
@@ -372,21 +400,6 @@
     <li class="md-nav__item">
       <a href="../institution-management/" class="md-nav__link">
         Institution Management
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../requests/" class="md-nav__link">
-        Requests
       </a>
     </li>
   
@@ -460,6 +473,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../redis/" class="md-nav__link">
+        Redis
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../ui-components/" class="md-nav__link">
         UI Components
       </a>
@@ -484,10 +512,83 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Database
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Database
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#migrations" class="md-nav__link">
+    Migrations
+  </a>
+  
+    <nav class="md-nav" aria-label="Migrations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#migration-patterns" class="md-nav__link">
+    Migration Patterns
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#views" class="md-nav__link">
+    Views
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#materialized-views" class="md-nav__link">
+    Materialized Views
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/" class="md-nav__link">
+        Data Models
+      </a>
     </li>
   
 
@@ -542,6 +643,48 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#migrations" class="md-nav__link">
+    Migrations
+  </a>
+  
+    <nav class="md-nav" aria-label="Migrations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#migration-patterns" class="md-nav__link">
+    Migration Patterns
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#views" class="md-nav__link">
+    Views
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#materialized-views" class="md-nav__link">
+    Materialized Views
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -561,6 +704,34 @@
 
 
 <h1 id="the-registry-database">The Registry Database</h1>
+<p>Registry uses a Postgres database, which runs in RDS in our live environments. You'll find connection settings in the .env files, such as <a href="https://github.com/APTrust/registry/blob/master/.env.test" target="_blank">.env.test</a> for non-live environments, and in AWS Parameter Store for live environments.</p>
+<p>The database was converted from the old Pharos DB. An overview of the migrations is available in <a href="https://github.com/APTrust/registry/tree/master/db/pharos" target="_blank">this README</a>.</p>
+<p>You can generate the current schema by loading the <a href="https://github.com/APTrust/registry/blob/master/db/initial_launch_schema.sql" target="_blank">initial launch schema</a> and then running the <a href="https://github.com/APTrust/registry/tree/master/db/migrations" target="_blank">migrations</a> on top of that. This is what happens when you run the registry test suite with the <code>./registry test</code> command.</p>
+<p>Under the hood, the test suite calls a set of functions in <a href="https://github.com/APTrust/registry/blob/master/db/testutil.go" target="_blank">db/testutil.go</a> to do the following:</p>
+<ul>
+<li>drop all objects in the database</li>
+<li>load the initial launch schema</li>
+<li>run all migrations in the db/migrations folder</li>
+<li>load fixtures for testing</li>
+</ul>
+<h2 id="migrations">Migrations</h2>
+<p>We are currently not using any migration manager. We write migrations as pure idempotent SQL and run them manually from the staging/demo/production bastion server.</p>
+<p>We'll look into better migration management solutions in the future. It's essential, however, to write idempotent migrations so that re-running a migration will not corrupt or damage the database.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The migration files are well commented. Look there if you're interested in details of what's going on and why things were written the way they were.</p>
+</div>
+<h3 id="migration-patterns">Migration Patterns</h3>
+<p>Migration files are SQL files in the <a href="https://github.com/APTrust/registry/tree/master/db/migrations" target="_blank">db/migrations</a> directory.</p>
+<p>They are named in the order they should be run. For example,
+001_deposit_stats.sql runs before 002_work_item_restorations.sql.</p>
+<p>Each migration begins by setting a <code>started_at</code> timestamp in the <code>schema_migrations</code> table and ends by setting a <code>finished_at</code> timestamp.</p>
+<h2 id="views">Views</h2>
+<p>The database uses views for most of Registry's detail and list pages. The old Pharos application used Rails and ActiveRecord to define relations, and typically issued many queries to assemble the data that the new DB assembles in views. Views allow Registry to issue single queries where Rails issued multiple queries.</p>
+<h2 id="materialized-views">Materialized Views</h2>
+<p>The database includes a number of materialized views to hold statistics that are expensive to calculate. The include counts and sums from large tables. The views are populated hourly by three SQL functions in <a href="https://github.com/APTrust/registry/blob/master/db/migrations/001_deposit_stats.sql" target="_blank">db/migrations/001_deposit_stats.sql</a>.</p>
+<p>These functions are intelligent enough to avoid unnecessary work. They are called by Registry itself every hour or so.</p>
+<p>When Registry starts, it creates a single <a href="https://github.com/APTrust/registry/blob/master/common/context.go" target="_blank">Context object</a> whose initializer calls <code>initCronJobs()</code>. That runs the update functions in  <a href="https://github.com/APTrust/registry/blob/master/common/cron.go" target="_blank">common/cron.go</a> every hour or so.</p>
 
 
 
@@ -597,13 +768,13 @@
       
       
         
-        <a href="../settings/" class="md-footer__link md-footer__link--next" aria-label="Next: Settings" rel="next">
+        <a href="../models/" class="md-footer__link md-footer__link--next" aria-label="Next: Data Models" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Settings
+              Data Models
             </div>
           </div>
           <div class="md-footer__button md-icon">

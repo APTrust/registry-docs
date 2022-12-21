@@ -13,7 +13,7 @@
     
     
       
-        <title>Authentication - APTrust Registry</title>
+        <title>Roles and Privileges - APTrust Registry</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#authentication" class="md-skip">
+        <a href="#roles-and-privileges" class="md-skip">
           Skip to content
         </a>
       
@@ -95,7 +95,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Authentication
+              Roles and Privileges
             
           </span>
         </div>
@@ -305,20 +305,6 @@
               
   
   
-  
-    <li class="md-nav__item">
-      <a href="../roles/" class="md-nav__link">
-        Roles and Privileges
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
     
   
   
@@ -330,61 +316,24 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Authentication
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
-        Authentication
+        Roles and Privileges
       </a>
       
-        
+    </li>
+  
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+            
+          
+            
+              
   
   
   
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#web-ui" class="md-nav__link">
-    Web UI
-  </a>
-  
-    <nav class="md-nav" aria-label="Web UI">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#endpoints-exempt-from-authorization" class="md-nav__link">
-    Endpoints Exempt from Authorization
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#api" class="md-nav__link">
-    API
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
+    <li class="md-nav__item">
+      <a href="../authentication/" class="md-nav__link">
+        Authentication
+      </a>
     </li>
   
 
@@ -638,41 +587,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#web-ui" class="md-nav__link">
-    Web UI
-  </a>
-  
-    <nav class="md-nav" aria-label="Web UI">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#endpoints-exempt-from-authorization" class="md-nav__link">
-    Endpoints Exempt from Authorization
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#api" class="md-nav__link">
-    API
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -685,69 +599,623 @@
                 
                   
 
-  <a href="https://github.com/APTrust/registry-docs/edit/master/docs/security/authentication.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/APTrust/registry-docs/edit/master/docs/security/roles.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="authentication">Authentication</h1>
-<p>Registry supports two types of authentication: a sign-in based scheme for users accessing the Web UI and a token-based scheme for API consumers accessing the member or admin API.</p>
-<h2 id="web-ui">Web UI</h2>
-<p>While the <code>UserSignInShow()</code> and <code>UserSignIn()</code> methods of the  <a href="https://github.com/APTrust/registry/blob/master/web/webui/users_controller.go" target="_blank">Users Controller</a> handle the sign-in process, the <a href="https://github.com/APTrust/registry/blob/master/middleware/authenticate.go" target="_blank">Authentication middleware</a> checks the session cookie on subsequent requests.</p>
-<p>The session cookie contains an encrypted User ID, which the authentication middleware uses to look up the user record. It then stores the User object in the Gin context for later access.</p>
-<p>The authentication middleware ensures the following:</p>
-<ol>
-<li>That the request includes a valid user session cookie with a valid user if the request tries to access a protected resource. See below for a list of resources that do not require authentication.</li>
-<li>That the user will be forced to complete the password change process before accessing any other resources, if the user happens to be in the middle of the password change process.</li>
-<li>That the user will be forced to complete the second step of two-factor authentication before accessing any other resources, if they have logged in with their email and password and have not yet completed the second step of two-factor auth.</li>
-</ol>
-<h3 id="endpoints-exempt-from-authorization">Endpoints Exempt from Authorization</h3>
-<p>The <a href="https://github.com/APTrust/registry/blob/master/middleware/authenticate.go" target="_blank">middleware/authentication.go</a> includes a function called <code>ExemptFromAuth()</code> to check whether the current request is exempt from authentication. Currently, the following endpoints are exempt:</p>
+<h1 id="roles-and-privileges">Roles and Privileges</h1>
+<p>Registry uses role-based privileges.</p>
+<p>Registry permissions are role-based with the following general rules:</p>
+<ul>
+<li>Institutional Users can access resources belonging to their own institution, but cannot perform destructive actions and manipulate other user accounts.</li>
+<li>Institutional Admins can do everything Institutional Users can do, plus approve deletion requests and manipulate other user accounts at their own institution.</li>
+<li>The System Administrator account has all privileges at all institutions, plus some additional privileges such as creating, editing, and deactivating institutions, managing NSQ services, re-queueing WorkItems, and other administrative tasks.</li>
+</ul>
+<p>The table below describes who can do what.</p>
+<!-- To edit the table below, edit RegsitryFeatures.ods, then save it as a csv file and set the delimiter character to | (pipe) -->
+
 <table>
 <thead>
 <tr>
-<th>Endpoint</th>
-<th>Explanation</th>
+<th>Feature</th>
+<th>Web <br/> UI</th>
+<th>Member <br/> API</th>
+<th>Admin <br/> API</th>
+<th>Roles Allowed</th>
+<th>Ownership Restrictions</th>
+<th>Description and Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>/users/sign_in</td>
-<td>Users obviously won't be logged in when they go to the sign-in page. They have to be able to see it to log in.</td>
+<td>Alert – List</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>All</td>
+<td>User’s own alerts</td>
+<td>View alerts pertaining to your account.</td>
 </tr>
 <tr>
-<td>/users/sign_out</td>
-<td>This page tells the user they've signed out.</td>
+<td>Alert – Mark Read</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>All</td>
+<td>User’s own alerts</td>
+<td>Mark alerts as read.</td>
 </tr>
 <tr>
-<td>/users/forgot_password</td>
-<td>This page is for users who have forgotten their password and received a password-reset email. The page includes a text input for them to enter the password reset token we sent them.</td>
+<td>Alert – Mark Unread</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>All</td>
+<td>User’s own alerts</td>
+<td>Mark alerts as unread.</td>
 </tr>
 <tr>
-<td>/users/complete_password_reset/</td>
-<td>After entering their reset token, users choose a new password on this page. The app includes security measures to prevent people accessing this page without having previously entered the reset token.</td>
+<td>Alert – Show</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>All</td>
+<td>User’s own alerts</td>
+<td>Show the text of an alert.</td>
 </tr>
 <tr>
-<td>/ui-components</td>
-<td>This page displays a gallery of UI components, for developer reference. It's static and contains no sensitive information.</td>
+<td>Checksum – Create</td>
+<td></td>
+<td></td>
+<td>✓</td>
+<td>System account</td>
+<td>None</td>
+<td>Create a new checksum for a Generic File.</td>
 </tr>
 <tr>
-<td>/static/*</td>
-<td>This is the prefix for all static resources, including scripts, stylesheets, icons and fonts.</td>
+<td>Checksum – List</td>
+<td></td>
+<td>✓</td>
+<td>✓</td>
+<td>All</td>
+<td>User’s own institution</td>
+<td>List checksums for Generic Files.</td>
 </tr>
 <tr>
-<td>/favicon/*</td>
-<td>This returns the site's favicon.</td>
+<td>Checksum – Show</td>
+<td></td>
+<td>✓</td>
+<td>✓</td>
+<td>All</td>
+<td>User’s own institution</td>
+<td>Show details of a checksum.</td>
 </tr>
 <tr>
-<td>/error</td>
-<td>This page displayes errors, including errors telling you you need to log in.</td>
+<td>Dashboard – Show</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>All</td>
+<td>User’s own institution</td>
+<td>Show the dashboard, with an overview of deposits and recent work items.</td>
+</tr>
+<tr>
+<td>Deletion – Approve</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>Inst. Admin only</td>
+<td>User’s own institution</td>
+<td>Approve a file or object deletion request submitted by another user at your institution.</td>
+</tr>
+<tr>
+<td>Deletion – List</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>Inst. Admin only</td>
+<td>User’s own institution</td>
+<td>Display a list of deletion requests for your institution.</td>
+</tr>
+<tr>
+<td>Deletion – Reject</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>Inst. Admin only</td>
+<td>User’s own institution</td>
+<td>Reject a file/object deletion request.</td>
+</tr>
+<tr>
+<td>Deletion – Review</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>Inst. Admin only</td>
+<td>User’s own institution</td>
+<td>Review a file/object deletion request with the option to approve or reject it.</td>
+</tr>
+<tr>
+<td>Deletion – Show</td>
+<td>✓</td>
+<td></td>
+<td>✓</td>
+<td>All</td>
+<td>User’s own institution</td>
+<td>Display a file/object deletion request without the object to approve or reject it.</td>
+</tr>
+<tr>
+<td>Generic File – Create</td>
+<td></td>
+<td></td>
+<td>✓</td>
+<td>System account</td>
+<td></td>
+<td>Create a single Generic Files. This happens only when recording a successful ingest.</td>
+</tr>
+<tr>
+<td>Generic File – Create Batch</td>
+<td></td>
+<td></td>
+<td>✓</td>
+<td>System account</td>
+<td></td>
+<td>Create a batch of Generic Files. This happens only when recording a successful ingest.</td>
+</tr>
+<tr>
+<td>Generic File – Delete</td>
+<td></td>
+<td></td>
+<td>✓</td>
+<td>Inst. Admin only</td>
+<td>User’s own institution</td>
+<td>Delete a Generic File. This happens only after deletion request has been approved.</td>
+</tr>
+<tr>
+<td>Generic File – Edit</td>
+<td></td>
+<td></td>
+<td>✓</td>
+<td>System account</td>
+<td></td>
+<td>Edit a Generic File. This happens only when re-ingesting an existing file.</td>
+</tr>
+<tr>
+<td>Generic File – List</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>All</td>
+<td>User’s own institution</td>
+<td>List Generic Files belonging to your institution.</td>
+</tr>
+<tr>
+<td>Generic File – Request Delete</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>Inst. Admin only</td>
+<td>User’s own institution</td>
+<td>Request deletion of one of your institution’s files. (Deletion must be approved by an institutional admin.)</td>
+</tr>
+<tr>
+<td>Generic File – Request Restore</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>All</td>
+<td>User’s own institution</td>
+<td>Request restoration of one of your institution’s files.</td>
+</tr>
+<tr>
+<td>Generic File – Show</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>All</td>
+<td>User’s own institution</td>
+<td>Display details of a Generic File belonging to your institution.</td>
+</tr>
+<tr>
+<td>Institution – Create</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>APTrust admin</td>
+<td></td>
+<td>Create a new institution.</td>
+</tr>
+<tr>
+<td>Institution – Delete</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>APTrust admin</td>
+<td></td>
+<td>Soft-deletes an institution by marking it as inactive.</td>
+</tr>
+<tr>
+<td>Institution – Edit</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>APTrust admin</td>
+<td></td>
+<td>Edit an existing institution.</td>
+</tr>
+<tr>
+<td>Institution – List</td>
+<td>✓</td>
+<td></td>
+<td>✓</td>
+<td>APTrust admin, System account</td>
+<td></td>
+<td>List all institutions.</td>
+</tr>
+<tr>
+<td>Institution – Show</td>
+<td>✓</td>
+<td></td>
+<td>✓</td>
+<td>APTrust admin, System account</td>
+<td></td>
+<td>Show details of an institution.</td>
+</tr>
+<tr>
+<td>Institution – Undelete</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>APTrust admin, System account</td>
+<td></td>
+<td>Reactivate a “deleted” institution.</td>
+</tr>
+<tr>
+<td>Intellectual Object – Create</td>
+<td></td>
+<td></td>
+<td>✓</td>
+<td>System account</td>
+<td></td>
+<td>Create an Intellectual Object. This happens only when recording a successful ingest.</td>
+</tr>
+<tr>
+<td>Intellectual Object – Delete</td>
+<td></td>
+<td></td>
+<td>✓</td>
+<td>System account</td>
+<td></td>
+<td>Only after approval by institutional admin</td>
+</tr>
+<tr>
+<td>Intellectual Object – Edit</td>
+<td></td>
+<td></td>
+<td>✓</td>
+<td>System account</td>
+<td></td>
+<td>Edit an Intellectual Object. This happens only when re-ingesting an existing object.</td>
+</tr>
+<tr>
+<td>Intellectual Object – List</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>All</td>
+<td>User’s own institution</td>
+<td>List Intellectual Objects belonging to your institution.</td>
+</tr>
+<tr>
+<td>Intellectual Object – List Events</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>All</td>
+<td>User’s own institution</td>
+<td>List Premis events associated with an Intellectual Object.</td>
+</tr>
+<tr>
+<td>Intellectual Object – List Files</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>All</td>
+<td>User’s own institution</td>
+<td>List Generic Files associated with an Intellectual Object.</td>
+</tr>
+<tr>
+<td>Intellectual Object – Request Delete</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>Inst. Admin only</td>
+<td></td>
+<td>Request deletion of an Intellectual Object. (Deletion must approved by an institutional admin.)</td>
+</tr>
+<tr>
+<td>Intellectual Object – Request Restore</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>All</td>
+<td>User’s own institution</td>
+<td>Request restoration of one of your institution’s Intellectual Objects.</td>
+</tr>
+<tr>
+<td>Intellectual Object – Show</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>All</td>
+<td>User’s own institution</td>
+<td>Show details of an Intellectual Object.</td>
+</tr>
+<tr>
+<td>NSQ – Admin</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>APTrust admin</td>
+<td></td>
+<td>Show NSQ admin panel.</td>
+</tr>
+<tr>
+<td>Premis Event – Create</td>
+<td></td>
+<td></td>
+<td>✓</td>
+<td>System account</td>
+<td></td>
+<td>Create a Premis event. This happens on ingest, fixity check, deletion.</td>
+</tr>
+<tr>
+<td>Premis Event – List</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>All</td>
+<td>User’s own institution</td>
+<td>List Premis events belonging to your institution.</td>
+</tr>
+<tr>
+<td>Premis Event – Show</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>All</td>
+<td>User’s own institution</td>
+<td>Show details of a Premis event.</td>
+</tr>
+<tr>
+<td>Storage Record – Create</td>
+<td></td>
+<td></td>
+<td>✓</td>
+<td>System account</td>
+<td></td>
+<td>Create a storage record describing where a file is stored. This happens only when recording a successful ingest.</td>
+</tr>
+<tr>
+<td>Storage Record – List</td>
+<td></td>
+<td></td>
+<td>✓</td>
+<td>System account</td>
+<td></td>
+<td>Show a list of storage records. Non-system users can see Storage Records as part of file detail in web UI.</td>
+</tr>
+<tr>
+<td>Storage Record – Show</td>
+<td></td>
+<td></td>
+<td>✓</td>
+<td>System account</td>
+<td></td>
+<td>Display details of a storage record. Non-admin users can see Storage Records as part of file detail in web UI.</td>
+</tr>
+<tr>
+<td>User – Confirm Phone</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>All</td>
+<td>User’s own account</td>
+<td>Confirm your phone number for two-factor authentication by entering the code we sent you.</td>
+</tr>
+<tr>
+<td>User – Create</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>Inst. Admin, APTrust admin</td>
+<td>User’s own institution</td>
+<td>Create a new user.</td>
+</tr>
+<tr>
+<td>User – Delete</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>Inst. Admin, APTrust admin</td>
+<td>User’s own institution</td>
+<td>Soft-deletes a user by marking them as inactive.</td>
+</tr>
+<tr>
+<td>User – Edit</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>Inst. Admin, APTrust admin</td>
+<td>User’s own institution</td>
+<td>Users can edit their own details, but not others, unless they’re an admin.</td>
+</tr>
+<tr>
+<td>User – Forgot Password</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>All</td>
+<td>User’s own account</td>
+<td>Sends an email to you with a link to help you log in.</td>
+</tr>
+<tr>
+<td>User – Generate API Key</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>All</td>
+<td>User’s own account</td>
+<td>Generates an API key so you can access the member API.</td>
+</tr>
+<tr>
+<td>User – Generate Backup Codes</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>All</td>
+<td>User’s own account</td>
+<td>Generates backup codes that two-factor auth users can use to login when they don’t have access to their phone.</td>
+</tr>
+<tr>
+<td>User – List</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>Inst. Admin, APTrust admin</td>
+<td>User’s own institution</td>
+<td>Displays a list of users at your institution.</td>
+</tr>
+<tr>
+<td>User – Login Second Factor</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>All</td>
+<td>User’s own account</td>
+<td>Allows users to enter backup or SMS codes for second factor of login.</td>
+</tr>
+<tr>
+<td>User – My Account</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>All</td>
+<td>User’s own account</td>
+<td>Display the details of your account.</td>
+</tr>
+<tr>
+<td>User – Reset Password</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>All</td>
+<td>User’s own account</td>
+<td>Reset your password.</td>
+</tr>
+<tr>
+<td>User – Set Up 2-Factor Auth</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>All</td>
+<td>User’s own account</td>
+<td>Begin the two-factor authentication setup process by choosing Authy or SMS.</td>
+</tr>
+<tr>
+<td>User – Show</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>Inst. Admin, APTrust admin</td>
+<td>User’s own institution</td>
+<td>Display the details of another user’s account.</td>
+</tr>
+<tr>
+<td>User – Sign In</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>All</td>
+<td>User’s own account</td>
+<td>Sign in to the web UI.</td>
+</tr>
+<tr>
+<td>User – Sign Out</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>All</td>
+<td>User’s own account</td>
+<td>Sign out of the web UI.</td>
+</tr>
+<tr>
+<td>User – Undelete</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>Inst. Admin, APTrust admin</td>
+<td>User’s own institution</td>
+<td>Reactivate a “deleted” user.</td>
+</tr>
+<tr>
+<td>WorkItem – Create</td>
+<td></td>
+<td></td>
+<td>✓</td>
+<td>System account</td>
+<td></td>
+<td>Create a new WorkItem.</td>
+</tr>
+<tr>
+<td>WorkItem – Delete Redis Data</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>APTrust admin</td>
+<td></td>
+<td>Delete the Redis data associated with a WorkItem. Do this only when requeuing an item back to the first stage of ingest, and only when you really want to throw out all the metadata and start over.</td>
+</tr>
+<tr>
+<td>WorkItem – Edit</td>
+<td>✓</td>
+<td></td>
+<td>✓</td>
+<td>APTrust admin, System account</td>
+<td></td>
+<td>Edit an existing work item.</td>
+</tr>
+<tr>
+<td>WorkItem – List</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>All</td>
+<td>User’s own institution</td>
+<td>List work items for your institution.</td>
+</tr>
+<tr>
+<td>WorkItem – Requeue</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>APTrust admin</td>
+<td></td>
+<td>Requeue a work item so workers will retry it.</td>
+</tr>
+<tr>
+<td>WorkItem – Show</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>All</td>
+<td>User’s own institution</td>
+<td>Show the details of an individual work item.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="api">API</h2>
-<p>If the Authentication middleware detects that the user has requested an API endpoint rather than a web endpoint, the <code>GetUserFromAPIHeaders()</code> function extracts the header values for <code>X-Pharos-API-User</code> and <code>X-Pharos-API-Key</code> and loads the user based on their API key.</p>
 
 
 
@@ -768,7 +1236,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../roles/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Roles and Privileges" rel="prev">
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Security Overview" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -777,20 +1245,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Roles and Privileges
+              Security Overview
             </div>
           </div>
         </a>
       
       
         
-        <a href="../authorization/" class="md-footer__link md-footer__link--next" aria-label="Next: Authorization" rel="next">
+        <a href="../authentication/" class="md-footer__link md-footer__link--next" aria-label="Next: Authentication" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Authorization
+              Authentication
             </div>
           </div>
           <div class="md-footer__button md-icon">

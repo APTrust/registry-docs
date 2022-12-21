@@ -220,21 +220,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/" class="md-nav__link">
-        Features
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../structure/" class="md-nav__link">
         Code Structure
       </a>
@@ -252,6 +237,21 @@
     <li class="md-nav__item">
       <a href="../../components/" class="md-nav__link">
         Key Code Components
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../requests/" class="md-nav__link">
+        Requests
       </a>
     </li>
   
@@ -295,6 +295,20 @@
     <li class="md-nav__item">
       <a href="../" class="md-nav__link">
         Security Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roles/" class="md-nav__link">
+        Roles and Privileges
       </a>
     </li>
   
@@ -362,6 +376,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#the-resourceauthorization-model" class="md-nav__link">
+    The ResourceAuthorization Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#permission-definitions" class="md-nav__link">
     Permission Definitions
   </a>
@@ -412,6 +433,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../headers/" class="md-nav__link">
+        Default Headers
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -443,21 +478,6 @@
     <li class="md-nav__item">
       <a href="../../institution-management/" class="md-nav__link">
         Institution Management
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../requests/" class="md-nav__link">
-        Requests
       </a>
     </li>
   
@@ -531,6 +551,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../../redis/" class="md-nav__link">
+        Redis
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../ui-components/" class="md-nav__link">
         UI Components
       </a>
@@ -548,6 +583,21 @@
     <li class="md-nav__item">
       <a href="../../database/" class="md-nav__link">
         Database
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/" class="md-nav__link">
+        Data Models
       </a>
     </li>
   
@@ -612,6 +662,13 @@
         <li class="md-nav__item">
   <a href="#things-to-note" class="md-nav__link">
     Things to Note
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-resourceauthorization-model" class="md-nav__link">
+    The ResourceAuthorization Model
   </a>
   
 </li>
@@ -688,7 +745,10 @@
 <ol>
 <li>If, when adding a new endpoint, you to forget to define a permission for it, you will never be able to reach that endpoint, because without a defined permission, <code>ResourceAuthorization.Checked</code> will be false.</li>
 <li>Requests for list endpoints, such as the WorkItems list and the IntellectualObject list, cannot include a ResourceID or a ResourceInstID, because the requests don't target a single resource. Unless the requesting user is an APTrust admin, database queries issued by these requests will <strong>always</strong> include an Institution ID filter, with the ID set to the user's own institution ID. For example, when a user from virginia.edu requests a list of WorkItems, objects, or files, the system will force a where clause into their queries stating <code>where institution_id = [user's institution id]</code>. This occurs in the <code>LoadResourceList()</code> function of the Web UI's <a href="https://github.com/APTrust/registry/blob/master/web/webui/request.go" target="_blank">Request object</a> and in the <code>LoadResourceList()</code> function of the API's <a href="https://github.com/APTrust/registry/blob/master/web/api/request.go" target="_blank">Request object</a>.</li>
+<li>The authorization middleware issues a lightweight query to return the model's insitution id. We want these queries to be as light as possible, since they run on every request. You'll find these queries in the <code>InstIDFor()</code> function in <a href="https://github.com/APTrust/registry/blob/master/pgmodels/pgmodel.go" target="_blank">pgmodel.go</a>.</li>
 </ol>
+<h2 id="the-resourceauthorization-model">The ResourceAuthorization Model</h2>
+<p>The ResourceAuthorization model constructed by the authorization middleware will be used later by the request handlers. For more on that, see the <a href="../../requests/#the-resourceauthorization-model">Requests</a> page.</p>
 <h2 id="permission-definitions">Permission Definitions</h2>
 <p>All of Registry's permission are defined in <a href="https://github.com/APTrust/registry/blob/master/constants/permissions.go" target="_blank">constants/permissions.go</a>. The <code>initPermissions()</code> function in that file assigns permissions to roles like so:</p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="c1">// Institutional User Role</span><span class="w"></span>

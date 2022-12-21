@@ -261,21 +261,6 @@
   
   
     <li class="md-nav__item">
-      <a href="features/" class="md-nav__link">
-        Features
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="structure/" class="md-nav__link">
         Code Structure
       </a>
@@ -293,6 +278,21 @@
     <li class="md-nav__item">
       <a href="components/" class="md-nav__link">
         Key Code Components
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="requests/" class="md-nav__link">
+        Requests
       </a>
     </li>
   
@@ -346,6 +346,20 @@
   
   
     <li class="md-nav__item">
+      <a href="security/roles/" class="md-nav__link">
+        Roles and Privileges
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="security/authentication/" class="md-nav__link">
         Authentication
       </a>
@@ -376,6 +390,20 @@
     <li class="md-nav__item">
       <a href="security/csrf/" class="md-nav__link">
         Cross-Site Request Forgery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="security/headers/" class="md-nav__link">
+        Default Headers
       </a>
     </li>
   
@@ -413,21 +441,6 @@
     <li class="md-nav__item">
       <a href="institution-management/" class="md-nav__link">
         Institution Management
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="requests/" class="md-nav__link">
-        Requests
       </a>
     </li>
   
@@ -501,6 +514,21 @@
   
   
     <li class="md-nav__item">
+      <a href="redis/" class="md-nav__link">
+        Redis
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="ui-components/" class="md-nav__link">
         UI Components
       </a>
@@ -518,6 +546,21 @@
     <li class="md-nav__item">
       <a href="database/" class="md-nav__link">
         Database
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="models/" class="md-nav__link">
+        Data Models
       </a>
     </li>
   
@@ -611,6 +654,10 @@
 <p>The web application lets depositors find, restore, and delete intellectual objects and generic files. It also shows the status of work items (i.e. ingests, restoration and deletion requests), and provides basic user management functions to local institutional admins.</p>
 <p>The member API provides read-only access to objects, files, work items and related records to APTrust depositors.</p>
 <p>The admin API provides read-write access to Preserv service workers that process ingests, restorations, fixity checks and deletions. Preserv is the Registry's most active client. Fixity checks typically issue 10,000+ requests per hour. A slow ingest day may result in only a few hundred API requests, while a very busy day may result in a million or so requests.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This documentation is not meant to be exhaustive, nor is it meant to show users how to use the Registry. This documentation intends to provide an overview to developers who will maintain Registry code. While the code itself contains detailed comments where necessary, these pages give you a high-level view of the system's main components, their roles, where they can be found, and how they interact.</p>
+</div>
 <h2 id="external-components-services">External Components &amp; Services</h2>
 <p>The Registry is written in Go, using the Gin web framework. The application runs inside Docker containers in Amazon's ECS/Fargate service. It tends to be light on memory and heavy on CPU when under load. ECS will add Registry containers when CPU usages passes a certain threshold and scale them back as load decreases.</p>
 <p>It stores persistent data in a Postgres database running on Amazon's RDS, using <a href="https://github.com/go-pg/pg" target="_blank">go-pg</a> as an object-relational mapper.</p>
@@ -670,13 +717,13 @@
       
       
         
-        <a href="features/" class="md-footer__link md-footer__link--next" aria-label="Next: Features" rel="next">
+        <a href="structure/" class="md-footer__link md-footer__link--next" aria-label="Next: Code Structure" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Features
+              Code Structure
             </div>
           </div>
           <div class="md-footer__button md-icon">

@@ -220,21 +220,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../features/" class="md-nav__link">
-        Features
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../structure/" class="md-nav__link">
         Code Structure
       </a>
@@ -252,6 +237,21 @@
     <li class="md-nav__item">
       <a href="../components/" class="md-nav__link">
         Key Code Components
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../requests/" class="md-nav__link">
+        Requests
       </a>
     </li>
   
@@ -305,6 +305,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../security/roles/" class="md-nav__link">
+        Roles and Privileges
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../security/authentication/" class="md-nav__link">
         Authentication
       </a>
@@ -335,6 +349,20 @@
     <li class="md-nav__item">
       <a href="../security/csrf/" class="md-nav__link">
         Cross-Site Request Forgery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/headers/" class="md-nav__link">
+        Default Headers
       </a>
     </li>
   
@@ -383,21 +411,6 @@
         Institution Management
       </a>
       
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../requests/" class="md-nav__link">
-        Requests
-      </a>
     </li>
   
 
@@ -470,6 +483,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../redis/" class="md-nav__link">
+        Redis
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../ui-components/" class="md-nav__link">
         UI Components
       </a>
@@ -487,6 +515,21 @@
     <li class="md-nav__item">
       <a href="../database/" class="md-nav__link">
         Database
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/" class="md-nav__link">
+        Data Models
       </a>
     </li>
   
@@ -561,6 +604,9 @@
 
 
 <h1 id="institution-management">Institution Management</h1>
+<p>APTrust admins can add, edit, and delete institutions. No other roles can do this.</p>
+<p>Note that deleting an instituion does not remove the institution's records from the database, nor does it affect their files in preservation storage. It simply marks the institution as inactive, and prevents their users from logging in. This action is reversible. Un-deleting an institution changes it's state back to Active and allows their users to log in.</p>
+<p>You can manage institutions from the <strong>Institutions</strong> link in the Registry's left nav bar.</p>
 
 
 
@@ -597,13 +643,13 @@
       
       
         
-        <a href="../requests/" class="md-footer__link md-footer__link--next" aria-label="Next: Requests" rel="next">
+        <a href="../deletion/" class="md-footer__link md-footer__link--next" aria-label="Next: Deletion" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Requests
+              Deletion
             </div>
           </div>
           <div class="md-footer__button md-icon">

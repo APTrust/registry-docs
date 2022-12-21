@@ -220,21 +220,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../features/" class="md-nav__link">
-        Features
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../structure/" class="md-nav__link">
         Code Structure
       </a>
@@ -252,6 +237,21 @@
     <li class="md-nav__item">
       <a href="../components/" class="md-nav__link">
         Key Code Components
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../requests/" class="md-nav__link">
+        Requests
       </a>
     </li>
   
@@ -305,6 +305,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../security/roles/" class="md-nav__link">
+        Roles and Privileges
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../security/authentication/" class="md-nav__link">
         Authentication
       </a>
@@ -335,6 +349,20 @@
     <li class="md-nav__item">
       <a href="../security/csrf/" class="md-nav__link">
         Cross-Site Request Forgery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/headers/" class="md-nav__link">
+        Default Headers
       </a>
     </li>
   
@@ -372,21 +400,6 @@
     <li class="md-nav__item">
       <a href="../institution-management/" class="md-nav__link">
         Institution Management
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../requests/" class="md-nav__link">
-        Requests
       </a>
     </li>
   
@@ -470,6 +483,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../redis/" class="md-nav__link">
+        Redis
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../ui-components/" class="md-nav__link">
         UI Components
       </a>
@@ -487,6 +515,21 @@
     <li class="md-nav__item">
       <a href="../database/" class="md-nav__link">
         Database
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/" class="md-nav__link">
+        Data Models
       </a>
     </li>
   
@@ -561,6 +604,13 @@
 
 
 <h1 id="file-and-object-restoration">File and Object Restoration</h1>
+<p>Users can request object restoration by clicking the <strong>Restore</strong> button on the object detail page. They can request file restoration by clicking the <strong>Restore</strong> on the file detail page, or under the expanded file detail view on an object detail page.</p>
+<p>For individual file restorations, the system will restore files from preservation storage to the depositor's restoration bucket. The file will be restored using its identifier as key.</p>
+<p>That is, file <code>virginia.edu/photos/data/image1.jpg</code> will be restored to <code>aptrust.restore.virginia.edu/virginia.edu/photos/data/image1.jpg</code>.</p>
+<p>Restored objects will be bagged and copied to the restoration bucket as a tar file. So, object <code>virginia.edu/photos</code> will be restored to <code>aptrust.restore.virginia.edu/photos.tar</code>. Because the files are being re-bagged, the they may appear in different order in the restored tar file than in the originally submitted tar file.</p>
+<p>Larger files and bags generally take longer to restore than smaller ones.</p>
+<h1 id="glacier-restorations">Glacier Restorations</h1>
+<p>Glacier Restorations work just like S3 and Wasabi restorations, except that items need to be moved from Glacier to S3 first, so they can be retrieved. That step can take up to five hours for items stored in regular Glacier archives, and up to twelve hours for items stored in Glacier Deep archives.</p>
 
 
 

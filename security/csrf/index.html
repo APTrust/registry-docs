@@ -220,21 +220,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/" class="md-nav__link">
-        Features
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../structure/" class="md-nav__link">
         Code Structure
       </a>
@@ -252,6 +237,21 @@
     <li class="md-nav__item">
       <a href="../../components/" class="md-nav__link">
         Key Code Components
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../requests/" class="md-nav__link">
+        Requests
       </a>
     </li>
   
@@ -295,6 +295,20 @@
     <li class="md-nav__item">
       <a href="../" class="md-nav__link">
         Security Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roles/" class="md-nav__link">
+        Roles and Privileges
       </a>
     </li>
   
@@ -353,6 +367,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../headers/" class="md-nav__link">
+        Default Headers
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -384,21 +412,6 @@
     <li class="md-nav__item">
       <a href="../../institution-management/" class="md-nav__link">
         Institution Management
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../requests/" class="md-nav__link">
-        Requests
       </a>
     </li>
   
@@ -472,6 +485,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../../redis/" class="md-nav__link">
+        Redis
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../ui-components/" class="md-nav__link">
         UI Components
       </a>
@@ -489,6 +517,21 @@
     <li class="md-nav__item">
       <a href="../../database/" class="md-nav__link">
         Database
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/" class="md-nav__link">
+        Data Models
       </a>
     </li>
   
@@ -563,6 +606,13 @@
 
 
 <h1 id="cross-site-request-forgery">Cross-Site Request Forgery</h1>
+<p>The <a href="https://github.com/APTrust/registry/blob/master/middleware/csrf.go" target="_blank">CSRF middleware</a> is the last to run. It does the following:</p>
+<ol>
+<li>Checks to see whether the request method is unsafe. Any method other than GET, HEAD, OPTIONS and TRACE is considered unsafe because it could add, delete, or alter data.</li>
+<li>If the method is unsafe, it checks to ensure that the request includes matching CSRF tokens in the cookie headers and in the submitted form. If either token is missing, or if the tokens don't match, the server stops processing the request and returns an error.</li>
+<li>This middleware will also reject unsafe requests coming from other domains.</li>
+</ol>
+<p>For a concise description on how CSRF attacks work and how anti-forgery tokens can prevent them, see <a href="https://learn.microsoft.com/en-us/aspnet/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks" target="_blank">Microsoft's CSRF write-up</a>.</p>
 
 
 
@@ -599,13 +649,13 @@
       
       
         
-        <a href="../../user-management/" class="md-footer__link md-footer__link--next" aria-label="Next: User Management" rel="next">
+        <a href="../headers/" class="md-footer__link md-footer__link--next" aria-label="Next: Default Headers" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              User Management
+              Default Headers
             </div>
           </div>
           <div class="md-footer__button md-icon">
