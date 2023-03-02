@@ -42,7 +42,9 @@ nav:
   - User Management: user-management.md
   - Institution Management: institution-management.md
   - Deletion: deletion.md
-  - Restoration: restoration.md
+  - Restoration:
+      - restoration/index.md
+      - restoration/spot-tests.md
   - Requeing Work Items: requeuing.md
   - NSQ: nsq.md
   - Redis: redis.md
