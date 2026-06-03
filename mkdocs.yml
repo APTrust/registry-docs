@@ -5,7 +5,7 @@
 # Or just see the README
 #
 # ----------------------------------------------------------------------
-site_name: APTrust Registry
+site_name: Registry Docs
 theme: material
 markdown_extensions:
   - attr_list
