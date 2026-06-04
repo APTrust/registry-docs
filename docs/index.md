@@ -20,11 +20,37 @@ It stores persistent data in a Postgres database running on Amazon's RDS, using 
 
 While the Registry handles incoming requests from web browsers, member API consumers around the country, and from Preserv, it also establishes outbound connections to the following services:
 
-| Service | Description |
-| ------- | ----------- |
-| Postgres | The main, long-term data store containing info about all objects and files stored in preservation buckets, plus their associated checksums, storage records and Premis events. The Postgres DB also contains user and institutional account records and info about work items. |
-| Authy | Used to send push notifications for multifactor authentication. |
-| NSQ | This queue service pushes work items to the Preserv workers that carry out the actual work. Registry sends Deletion and Restoration requests to NSQ in response to user actions in the Web UI. |
-| Redis | Registry reads JSON data from Redis describing the state of long-running ingest processes. Registry can also delete Redis data on demand when requeuing Work Items. Redis data is available to APTrust admins only. |
-| Amazon SES | Registry sends alerts and password-reset messages via email through Amazon's Simple Email Service. |
-| Amazon SNS | Registry sends one-time passwords in text messages through Amazon's SNS service. This is for multifactor authentication. |
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Service</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Postgres</td>
+      <td>The main, long-term data store containing info about all objects and files stored in preservation buckets, plus their associated checksums, storage records and Premis events. The Postgres DB also contains user and institutional account records and info about work items.</td>
+    </tr>
+    <tr>
+      <td>Authy</td>
+      <td>Used to send push notifications for multifactor authentication.</td>
+    </tr>
+    <tr>
+      <td>NSQ</td>
+      <td>This queue service pushes work items to the Preserv workers that carry out the actual work. Registry sends Deletion and Restoration requests to NSQ in response to user actions in the Web UI.</td>
+    </tr>
+    <tr>
+      <td>Redis</td>
+      <td>Registry reads JSON data from Redis describing the state of long-running ingest processes. Registry can also delete Redis data on demand when requeuing Work Items. Redis data is available to APTrust admins only.</td>
+    </tr>
+    <tr>
+      <td>Amazon SES</td>
+      <td>Registry sends alerts and password-reset messages via email through Amazon's Simple Email Service.</td>
+    </tr>
+    <tr>
+      <td>Amazon SNS</td>
+      <td>Registry sends one-time passwords in text messages through Amazon's SNS service. This is for multifactor authentication.</td>
+    </tr>
+  </tbody>
+</table>
