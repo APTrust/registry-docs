@@ -1036,7 +1036,7 @@
 <li>The System Administrator account has all privileges at all institutions, plus some additional privileges such as creating, editing, and deactivating institutions, managing NSQ services, re-queueing WorkItems, and other administrative tasks.</li>
 </ul>
 <p>The table below describes who can do what.</p>
-<!-- To edit the table below, edit RegsitryFeatures.ods, then save it as a csv file and set the delimiter character to | (pipe) -->
+<!-- To edit the table below, edit RegsitryFeatures.ods, then save it as a csv file and set the delimiter character to | (pipe). BUT change checks to YES and blanks to NO for a11y. WCAG 1.3.1 -->
 
 <table>
 <thead>
@@ -1053,587 +1053,587 @@
 <tbody>
 <tr>
 <td>Alert – List</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>All</td>
-<td>User’s own alerts</td>
+<td>User's own alerts</td>
 <td>View alerts pertaining to your account.</td>
 </tr>
 <tr>
 <td>Alert – Mark Read</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>All</td>
-<td>User’s own alerts</td>
+<td>User's own alerts</td>
 <td>Mark alerts as read.</td>
 </tr>
 <tr>
 <td>Alert – Mark Unread</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>All</td>
-<td>User’s own alerts</td>
+<td>User's own alerts</td>
 <td>Mark alerts as unread.</td>
 </tr>
 <tr>
 <td>Alert – Show</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>All</td>
-<td>User’s own alerts</td>
+<td>User's own alerts</td>
 <td>Show the text of an alert.</td>
 </tr>
 <tr>
 <td>Checksum – Create</td>
-<td></td>
-<td></td>
-<td>✓</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
 <td>System account</td>
 <td>None</td>
 <td>Create a new checksum for a Generic File.</td>
 </tr>
 <tr>
 <td>Checksum – List</td>
-<td></td>
-<td>✓</td>
-<td>✓</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
 <td>All</td>
-<td>User’s own institution</td>
+<td>User's own institution</td>
 <td>List checksums for Generic Files.</td>
 </tr>
 <tr>
 <td>Checksum – Show</td>
-<td></td>
-<td>✓</td>
-<td>✓</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
 <td>All</td>
-<td>User’s own institution</td>
+<td>User's own institution</td>
 <td>Show details of a checksum.</td>
 </tr>
 <tr>
 <td>Dashboard – Show</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>All</td>
-<td>User’s own institution</td>
+<td>User's own institution</td>
 <td>Show the dashboard, with an overview of deposits and recent work items.</td>
 </tr>
 <tr>
 <td>Deletion – Approve</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>Inst. Admin only</td>
-<td>User’s own institution</td>
+<td>User's own institution</td>
 <td>Approve a file or object deletion request submitted by another user at your institution.</td>
 </tr>
 <tr>
 <td>Deletion – List</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>Inst. Admin only</td>
-<td>User’s own institution</td>
+<td>User's own institution</td>
 <td>Display a list of deletion requests for your institution.</td>
 </tr>
 <tr>
 <td>Deletion – Reject</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>Inst. Admin only</td>
-<td>User’s own institution</td>
+<td>User's own institution</td>
 <td>Reject a file/object deletion request.</td>
 </tr>
 <tr>
 <td>Deletion – Review</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>Inst. Admin only</td>
-<td>User’s own institution</td>
+<td>User's own institution</td>
 <td>Review a file/object deletion request with the option to approve or reject it.</td>
 </tr>
 <tr>
 <td>Deletion – Show</td>
-<td>✓</td>
-<td></td>
-<td>✓</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
 <td>All</td>
-<td>User’s own institution</td>
+<td>User's own institution</td>
 <td>Display a file/object deletion request without the object to approve or reject it.</td>
 </tr>
 <tr>
 <td>Generic File – Create</td>
-<td></td>
-<td></td>
-<td>✓</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
 <td>System account</td>
 <td></td>
 <td>Create a single Generic Files. This happens only when recording a successful ingest.</td>
 </tr>
 <tr>
 <td>Generic File – Create Batch</td>
-<td></td>
-<td></td>
-<td>✓</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
 <td>System account</td>
 <td></td>
 <td>Create a batch of Generic Files. This happens only when recording a successful ingest.</td>
 </tr>
 <tr>
 <td>Generic File – Delete</td>
-<td></td>
-<td></td>
-<td>✓</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
 <td>Inst. Admin only</td>
-<td>User’s own institution</td>
+<td>User's own institution</td>
 <td>Delete a Generic File. This happens only after deletion request has been approved.</td>
 </tr>
 <tr>
 <td>Generic File – Edit</td>
-<td></td>
-<td></td>
-<td>✓</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
 <td>System account</td>
 <td></td>
 <td>Edit a Generic File. This happens only when re-ingesting an existing file.</td>
 </tr>
 <tr>
 <td>Generic File – List</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
 <td>All</td>
-<td>User’s own institution</td>
+<td>User's own institution</td>
 <td>List Generic Files belonging to your institution.</td>
 </tr>
 <tr>
 <td>Generic File – Request Delete</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>Inst. Admin only</td>
-<td>User’s own institution</td>
-<td>Request deletion of one of your institution’s files. (Deletion must be approved by an institutional admin.)</td>
+<td>User's own institution</td>
+<td>Request deletion of one of your institution's files. (Deletion must be approved by an institutional admin.)</td>
 </tr>
 <tr>
 <td>Generic File – Request Restore</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>All</td>
-<td>User’s own institution</td>
-<td>Request restoration of one of your institution’s files.</td>
+<td>User's own institution</td>
+<td>Request restoration of one of your institution's files.</td>
 </tr>
 <tr>
 <td>Generic File – Show</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
 <td>All</td>
-<td>User’s own institution</td>
+<td>User's own institution</td>
 <td>Display details of a Generic File belonging to your institution.</td>
 </tr>
 <tr>
 <td>Institution – Create</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>APTrust admin</td>
 <td></td>
 <td>Create a new institution.</td>
 </tr>
 <tr>
 <td>Institution – Delete</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>APTrust admin</td>
 <td></td>
 <td>Soft-deletes an institution by marking it as inactive.</td>
 </tr>
 <tr>
 <td>Institution – Edit</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>APTrust admin</td>
 <td></td>
 <td>Edit an existing institution.</td>
 </tr>
 <tr>
 <td>Institution – List</td>
-<td>✓</td>
-<td></td>
-<td>✓</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
 <td>APTrust admin, System account</td>
 <td></td>
 <td>List all institutions.</td>
 </tr>
 <tr>
 <td>Institution – Show</td>
-<td>✓</td>
-<td></td>
-<td>✓</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
 <td>APTrust admin, System account</td>
 <td></td>
 <td>Show details of an institution.</td>
 </tr>
 <tr>
 <td>Institution – Undelete</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>APTrust admin, System account</td>
 <td></td>
-<td>Reactivate a “deleted” institution.</td>
+<td>Reactivate a "deleted" institution.</td>
 </tr>
 <tr>
 <td>Intellectual Object – Create</td>
-<td></td>
-<td></td>
-<td>✓</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
 <td>System account</td>
 <td></td>
 <td>Create an Intellectual Object. This happens only when recording a successful ingest.</td>
 </tr>
 <tr>
 <td>Intellectual Object – Delete</td>
-<td></td>
-<td></td>
-<td>✓</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
 <td>System account</td>
 <td></td>
 <td>Only after approval by institutional admin</td>
 </tr>
 <tr>
 <td>Intellectual Object – Edit</td>
-<td></td>
-<td></td>
-<td>✓</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
 <td>System account</td>
 <td></td>
 <td>Edit an Intellectual Object. This happens only when re-ingesting an existing object.</td>
 </tr>
 <tr>
 <td>Intellectual Object – List</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
 <td>All</td>
-<td>User’s own institution</td>
+<td>User's own institution</td>
 <td>List Intellectual Objects belonging to your institution.</td>
 </tr>
 <tr>
 <td>Intellectual Object – List Events</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>All</td>
-<td>User’s own institution</td>
+<td>User's own institution</td>
 <td>List Premis events associated with an Intellectual Object.</td>
 </tr>
 <tr>
 <td>Intellectual Object – List Files</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>All</td>
-<td>User’s own institution</td>
+<td>User's own institution</td>
 <td>List Generic Files associated with an Intellectual Object.</td>
 </tr>
 <tr>
 <td>Intellectual Object – Request Delete</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>Inst. Admin only</td>
 <td></td>
 <td>Request deletion of an Intellectual Object. (Deletion must approved by an institutional admin.)</td>
 </tr>
 <tr>
 <td>Intellectual Object – Request Restore</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>All</td>
-<td>User’s own institution</td>
-<td>Request restoration of one of your institution’s Intellectual Objects.</td>
+<td>User's own institution</td>
+<td>Request restoration of one of your institution's Intellectual Objects.</td>
 </tr>
 <tr>
 <td>Intellectual Object – Show</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
 <td>All</td>
-<td>User’s own institution</td>
+<td>User's own institution</td>
 <td>Show details of an Intellectual Object.</td>
 </tr>
 <tr>
 <td>NSQ – Admin</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>APTrust admin</td>
 <td></td>
 <td>Show NSQ admin panel.</td>
 </tr>
 <tr>
 <td>Premis Event – Create</td>
-<td></td>
-<td></td>
-<td>✓</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
 <td>System account</td>
 <td></td>
 <td>Create a Premis event. This happens on ingest, fixity check, deletion.</td>
 </tr>
 <tr>
 <td>Premis Event – List</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
 <td>All</td>
-<td>User’s own institution</td>
+<td>User's own institution</td>
 <td>List Premis events belonging to your institution.</td>
 </tr>
 <tr>
 <td>Premis Event – Show</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
 <td>All</td>
-<td>User’s own institution</td>
+<td>User's own institution</td>
 <td>Show details of a Premis event.</td>
 </tr>
 <tr>
 <td>Storage Record – Create</td>
-<td></td>
-<td></td>
-<td>✓</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
 <td>System account</td>
 <td></td>
 <td>Create a storage record describing where a file is stored. This happens only when recording a successful ingest.</td>
 </tr>
 <tr>
 <td>Storage Record – List</td>
-<td></td>
-<td></td>
-<td>✓</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
 <td>System account</td>
 <td></td>
 <td>Show a list of storage records. Non-system users can see Storage Records as part of file detail in web UI.</td>
 </tr>
 <tr>
 <td>Storage Record – Show</td>
-<td></td>
-<td></td>
-<td>✓</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
 <td>System account</td>
 <td></td>
 <td>Display details of a storage record. Non-admin users can see Storage Records as part of file detail in web UI.</td>
 </tr>
 <tr>
 <td>User – Confirm Phone</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>All</td>
-<td>User’s own account</td>
+<td>User's own account</td>
 <td>Confirm your phone number for two-factor authentication by entering the code we sent you.</td>
 </tr>
 <tr>
 <td>User – Create</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>Inst. Admin, APTrust admin</td>
-<td>User’s own institution</td>
+<td>User's own institution</td>
 <td>Create a new user.</td>
 </tr>
 <tr>
 <td>User – Delete</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>Inst. Admin, APTrust admin</td>
-<td>User’s own institution</td>
+<td>User's own institution</td>
 <td>Soft-deletes a user by marking them as inactive.</td>
 </tr>
 <tr>
 <td>User – Edit</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>Inst. Admin, APTrust admin</td>
-<td>User’s own institution</td>
-<td>Users can edit their own details, but not others, unless they’re an admin.</td>
+<td>User's own institution</td>
+<td>Users can edit their own details, but not others, unless they're an admin.</td>
 </tr>
 <tr>
 <td>User – Forgot Password</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>All</td>
-<td>User’s own account</td>
+<td>User's own account</td>
 <td>Sends an email to you with a link to help you log in.</td>
 </tr>
 <tr>
 <td>User – Generate API Key</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>All</td>
-<td>User’s own account</td>
+<td>User's own account</td>
 <td>Generates an API key so you can access the member API.</td>
 </tr>
 <tr>
 <td>User – Generate Backup Codes</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>All</td>
-<td>User’s own account</td>
-<td>Generates backup codes that two-factor auth users can use to login when they don’t have access to their phone.</td>
+<td>User's own account</td>
+<td>Generates backup codes that two-factor auth users can use to login when they don't have access to their phone.</td>
 </tr>
 <tr>
 <td>User – List</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>Inst. Admin, APTrust admin</td>
-<td>User’s own institution</td>
+<td>User's own institution</td>
 <td>Displays a list of users at your institution.</td>
 </tr>
 <tr>
 <td>User – Login Second Factor</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>All</td>
-<td>User’s own account</td>
+<td>User's own account</td>
 <td>Allows users to enter backup or SMS codes for second factor of login.</td>
 </tr>
 <tr>
 <td>User – My Account</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>All</td>
-<td>User’s own account</td>
+<td>User's own account</td>
 <td>Display the details of your account.</td>
 </tr>
 <tr>
 <td>User – Reset Password</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>All</td>
-<td>User’s own account</td>
+<td>User's own account</td>
 <td>Reset your password.</td>
 </tr>
 <tr>
 <td>User – Set Up 2-Factor Auth</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>All</td>
-<td>User’s own account</td>
+<td>User's own account</td>
 <td>Begin the two-factor authentication setup process by choosing Authy or SMS.</td>
 </tr>
 <tr>
 <td>User – Show</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>Inst. Admin, APTrust admin</td>
-<td>User’s own institution</td>
-<td>Display the details of another user’s account.</td>
+<td>User's own institution</td>
+<td>Display the details of another user's account.</td>
 </tr>
 <tr>
 <td>User – Sign In</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>All</td>
-<td>User’s own account</td>
+<td>User's own account</td>
 <td>Sign in to the web UI.</td>
 </tr>
 <tr>
 <td>User – Sign Out</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>All</td>
-<td>User’s own account</td>
+<td>User's own account</td>
 <td>Sign out of the web UI.</td>
 </tr>
 <tr>
 <td>User – Undelete</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>Inst. Admin, APTrust admin</td>
-<td>User’s own institution</td>
-<td>Reactivate a “deleted” user.</td>
+<td>User's own institution</td>
+<td>Reactivate a "deleted" user.</td>
 </tr>
 <tr>
 <td>WorkItem – Create</td>
-<td></td>
-<td></td>
-<td>✓</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
 <td>System account</td>
 <td></td>
 <td>Create a new WorkItem.</td>
 </tr>
 <tr>
 <td>WorkItem – Delete Redis Data</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>APTrust admin</td>
 <td></td>
 <td>Delete the Redis data associated with a WorkItem. Do this only when requeuing an item back to the first stage of ingest, and only when you really want to throw out all the metadata and start over.</td>
 </tr>
 <tr>
 <td>WorkItem – Edit</td>
-<td>✓</td>
-<td></td>
-<td>✓</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
 <td>APTrust admin, System account</td>
 <td></td>
 <td>Edit an existing work item.</td>
 </tr>
 <tr>
 <td>WorkItem – List</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
 <td>All</td>
-<td>User’s own institution</td>
+<td>User's own institution</td>
 <td>List work items for your institution.</td>
 </tr>
 <tr>
 <td>WorkItem – Requeue</td>
-<td>✓</td>
-<td></td>
-<td></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
 <td>APTrust admin</td>
 <td></td>
 <td>Requeue a work item so workers will retry it.</td>
 </tr>
 <tr>
 <td>WorkItem – Show</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
 <td>All</td>
-<td>User’s own institution</td>
+<td>User's own institution</td>
 <td>Show the details of an individual work item.</td>
 </tr>
 </tbody>
