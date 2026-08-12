@@ -24,6 +24,7 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.superfences
   - pymdownx.tilde
+  - md_in_html
   - markdown_include.include:
       base_path: docs
 repo_url:  https://github.com/APTrust/registry-docs
