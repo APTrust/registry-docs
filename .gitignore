@@ -1,4 +1,5 @@
 *~
 site/*
+build/
 *DS_Store
 .python-version
