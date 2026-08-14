@@ -1,3 +1,9 @@
+---
+description: >-
+  Using the Registry's built-in NSQ admin panel to monitor topics and
+  channels, and to safely pause, unpause, and empty work queues.
+---
+
 # NSQ
 
 The Registry provides access to NSQ, so APTrust admins can see the status of queues and topics. We expose NSQ here, rather than on the public internet, so outsiders can't access its admin panel. (Hint: You'll find it in Registry's left sidebar, under **More Options > NSQ**.)

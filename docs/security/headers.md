@@ -1,3 +1,9 @@
+---
+description: >-
+  The default security headers the Registry sets on every response, including
+  HSTS, CSP, X-Content-Type-Options, and cache controls.
+---
+
 # Default Headers
 
 The Authentication middleware, which is the first to touch each request, also sets some default headers. We want to set these headers as soon as possible in the response lifecycle because we want to those headers to be present even when authenticaion fails and the auth middleware responds directly to the user.

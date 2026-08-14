@@ -1,3 +1,9 @@
+---
+description: >-
+  How APTrust admins add, edit, and soft-delete institutions in the Registry,
+  and what deactivating an institution does to its users.
+---
+
 # Institution Management
 
 APTrust admins can add, edit, and delete institutions. No other roles can do this.

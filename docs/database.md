@@ -1,3 +1,9 @@
+---
+description: >-
+  How the APTrust Registry's Postgres database is structured, including schema
+  loading, SQL migrations, views, and hourly materialized views.
+---
+
 # The Registry Database
 
 Registry uses a Postgres database, which runs in RDS in our live environments. You'll find connection settings in the .env files, such as [.env.test](https://github.com/APTrust/registry/blob/master/.env.test){target=_blank} for non-live environments, and in AWS Parameter Store for live environments.

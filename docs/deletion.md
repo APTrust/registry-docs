@@ -1,3 +1,9 @@
+---
+description: >-
+  The multi-step file and object deletion workflow in the APTrust Registry,
+  from user request through admin approval to PREMIS events.
+---
+
 # File and Object Deletion
 
 File and object deletion follow the same multi-step process:

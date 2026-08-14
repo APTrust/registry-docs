@@ -1,3 +1,9 @@
+---
+description: >-
+  How to run the APTrust Registry test suite with ./registry test, and when to
+  also run Preservation Services integration tests.
+---
+
 # Testing
 
 To run the Registry's unit tests, simply run `./registry test` from the project's top-level directory.

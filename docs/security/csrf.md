@@ -1,3 +1,9 @@
+---
+description: >-
+  How the Registry's CSRF middleware blocks cross-site request forgery by
+  validating anti-forgery tokens on all unsafe HTTP requests.
+---
+
 # Cross-Site Request Forgery
 
 The [CSRF middleware](https://github.com/APTrust/registry/blob/master/middleware/csrf.go){target=_blank} is the last to run. It does the following:

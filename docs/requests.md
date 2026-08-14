@@ -1,3 +1,9 @@
+---
+description: >-
+  The APTrust Registry request lifecycle: authentication, authorization, and
+  CSRF middleware, then handlers built on web and API request objects.
+---
+
 # Request Lifecycle
 
 Processing for virtually all Registry requests follows the same pattern, flowing through the these steps, in order:

@@ -1,3 +1,9 @@
+---
+description: >-
+  Overview of the APTrust Registry's key Go components: application setup,
+  config and context objects, middleware, request objects, forms, and views.
+---
+
 # Code Components
 
 The Registry app is built primarily on the [Gin web framework](https://github.com/gin-gonic/gin){target=_blank} and the [go-pg](https://github.com/go-pg/pg){target=_blank} ORM for Postgres.

@@ -1,3 +1,9 @@
+---
+description: >-
+  A directory-by-directory guide to the APTrust Registry GitHub repository,
+  explaining what each folder and top-level file contains.
+---
+
 # Code Structure
 
 The [Registry's GitHub repository](https://github.com/APTrust/registry){_target=blank} contains the follwing directories and files:

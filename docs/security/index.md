@@ -1,3 +1,9 @@
+---
+description: >-
+  Overview of Registry security: authentication, authorization, and CSRF
+  middleware that run in order before any request handler is called.
+---
+
 # Security Overview
 
 Registry's security system has three main components. Click on any link to learn more.

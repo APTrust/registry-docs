@@ -1,3 +1,9 @@
+---
+description: >-
+  How APTrust admins requeue stalled WorkItems in the Registry, choose a
+  processing stage, and clear Redis data before a pre-fetch requeue.
+---
+
 # Requeuing WorkItems
 
 APTrust admins will see a button and a select list at the top of the WorkItem detail page _for items that have not completed processing._ There will be no requeue button for items that have finished ingest, restoration or deletion.

@@ -1,3 +1,9 @@
+---
+description: >-
+  How the Registry loads configuration from .env files and environment
+  variables, plus a reference table for every available setting.
+---
+
 # Settings
 
 Registry loads settings into its [config object](https://github.com/APTrust/registry/blob/master/common/config.go){target=_blank} the first time the [common.Context()](https://github.com/APTrust/registry/blob/master/common/context.go){target=_blank} function is called.

@@ -1,3 +1,9 @@
+---
+description: >-
+  How the Registry displays Redis interim ingest data for in-progress
+  WorkItems, and the rare cases when APTrust admins should delete it.
+---
+
 # Redis
 
 Preservation Services workers use Redis to store interim processing data during ingest. Registry displays a summary of Redis data for WorkItems currently in progress. Only APTrust admins can see this data. The summary includes information about when each worker started and stopped working on an ingest, how many attempts each worker made, and what (if any) errors occurred.

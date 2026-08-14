@@ -1,3 +1,9 @@
+---
+description: >-
+  How depositors request file and object restorations in the Registry, where
+  restored items land, and how long Glacier restorations take.
+---
+
 # File and Object Restoration
 
 Users can request object restoration by clicking the **Restore** button on the object detail page. They can request file restoration by clicking the **Restore** on the file detail page, or under the expanded file detail view on an object detail page.

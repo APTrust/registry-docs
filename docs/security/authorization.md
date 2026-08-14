@@ -1,3 +1,9 @@
+---
+description: >-
+  How Registry authorization middleware maps permissions to handlers and
+  enforces role- and institution-level access checks on every request.
+---
+
 # Authorization
 
 Authorization middleware runs after authentication middleware. By the time it touches the request, the authentication middlware has added the User object to the current request.

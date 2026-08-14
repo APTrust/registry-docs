@@ -1,3 +1,9 @@
+---
+description: >-
+  Reference for the APTrust Registry's pgmodels data models, allowed query
+  filters, and the table- and view-backed types behind every page.
+---
+
 # Data Models
 
 The data models that form the core of the Registry are located in the [pgmodels directory](https://github.com/APTrust/registry/tree/master/pgmodels){target=_blank}. These models map directly to database tables or database views.

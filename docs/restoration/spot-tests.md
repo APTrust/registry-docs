@@ -1,3 +1,9 @@
+---
+description: >-
+  How APTrust restoration spot tests work: per-institution frequency settings,
+  the daily cron job, candidate selection, and completion alerts.
+---
+
 # Restoration Spot Tests
 
 Restoration spot tests are initiated by APTrust, restoring one random bag to an institution. The points of the exercise are:

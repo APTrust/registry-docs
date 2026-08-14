@@ -1,5 +1,5 @@
 ---
-description: >
+description: >-
   The APTrust Registry is the web interface for managing your institution's
   digital objects, monitoring ingest and restoration jobs, and administering
   user accounts.

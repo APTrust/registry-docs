@@ -1,3 +1,9 @@
+---
+description: >-
+  How institutional and APTrust admins create, edit, and soft-delete Registry
+  user accounts, and why user records are never truly deleted.
+---
+
 # User Management
 
 Institutional admins can add, edit, and delete user accounts at their own institutions. APTrust admins can add, edit, and delete user accounts belonging to any institution. Institutional users can edit only their own account.

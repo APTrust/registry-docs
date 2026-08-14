@@ -1,3 +1,9 @@
+---
+description: >-
+  A full table of APTrust Registry features and the roles allowed to use each
+  one across the web UI, member API, and admin API.
+---
+
 # Roles and Privileges
 
 Registry uses role-based privileges.
